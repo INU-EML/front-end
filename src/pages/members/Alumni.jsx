@@ -1,191 +1,161 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
+import { theme, breakpoints } from '../../styles/GlobalStyles';
+import { alumniData } from '../../data/Members/AlumniData';
+import AlumniCard from '../../components/members/AlumniCard';
+
+// Animation keyframes
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
+
+const pulse = keyframes`
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+`;
+
+const float = keyframes`
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+`;
 
 const PageContainer = styled.div`
-  padding: 1rem 0;
+  padding: 6rem 0 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  
+  @media (max-width: ${breakpoints.desktop}) {
+    padding: 6rem 2rem 3rem;
+  }
+  
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 6rem 1rem 2rem;
+  }
 `;
 
 const PageHeader = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  animation: ${fadeIn} 0.8s ease-out forwards;
 `;
 
 const Title = styled.h1`
-  font-size: 2rem;
-  color: #333;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, ${theme.primary}, ${theme.secondary});
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+  
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 2rem;
+  }
 `;
 
-const AlumniSection = styled.section`
-  margin-bottom: 2.5rem;
+const Description = styled.p`
+  font-size: 1.1rem;
+  color: ${theme.text};
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 1rem;
+  }
 `;
 
-const SectionTitle = styled.h2`
-  font-size: 1.5rem;
-  color: #444;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #eee;
+// Background shape components
+const BackgroundShape = styled.div`
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.05;
+  z-index: -1;
 `;
 
-const AlumniList = styled.div`
+const Shape1 = styled(BackgroundShape)`
+  width: 300px;
+  height: 300px;
+  top: 15%;
+  left: -150px;
+  background: radial-gradient(circle, ${theme.primary} 0%, transparent 70%);
+  animation: ${float} 15s infinite ease-in-out;
+`;
+
+const Shape2 = styled(BackgroundShape)`
+  width: 200px;
+  height: 200px;
+  top: 40%;
+  right: -100px;
+  background: radial-gradient(circle, ${theme.secondary} 0%, transparent 70%);
+  animation: ${float} 12s infinite ease-in-out reverse;
+`;
+
+const Shape3 = styled(BackgroundShape)`
+  width: 250px;
+  height: 250px;
+  bottom: 10%;
+  left: 10%;
+  background: radial-gradient(circle, ${theme.accent} 0%, transparent 70%);
+  animation: ${float} 18s infinite ease-in-out;
+`;
+
+const AlumniGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
+  
+  @media (max-width: ${breakpoints.mobile}) {
+    grid-template-columns: 1fr;
+  }
 `;
 
-const AlumniCard = styled.div`
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+const EmptyMessage = styled.p`
+  text-align: center;
+  color: ${theme.gray};
+  font-style: italic;
+  padding: 2rem;
+  grid-column: 1 / -1;
 `;
 
-const AlumniName = styled.h3`
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 0.5rem;
-`;
 
-const AlumniDegree = styled.p`
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 0.5rem;
-`;
 
-const AlumniYear = styled.p`
-  font-size: 0.9rem;
-  color: #777;
-  margin-bottom: 0.5rem;
-`;
 
-const AlumniPosition = styled.p`
-  font-size: 0.9rem;
-  color: #0066cc;
-  font-weight: 500;
-`;
+
+
+
+
+
 
 const Alumni = () => {
-  // Hardcoded alumni data
-  const phDAlumni = [
-    {
-      id: 1,
-      name: 'Dr. Thomas Wilson',
-      degree: 'Ph.D. in Chemical Engineering',
-      year: '2021',
-      position: 'Research Scientist at National Laboratory'
-    },
-    {
-      id: 2,
-      name: 'Dr. Lisa Rodriguez',
-      degree: 'Ph.D. in Materials Science',
-      year: '2020',
-      position: 'Assistant Professor at University of Technology'
-    },
-    {
-      id: 3,
-      name: 'Dr. James Taylor',
-      degree: 'Ph.D. in Chemical Engineering',
-      year: '2019',
-      position: 'Senior Engineer at Energy Solutions Inc.'
-    }
-  ];
-
-  const mastersAlumni = [
-    {
-      id: 1,
-      name: 'Alex Brown',
-      degree: 'M.S. in Chemical Engineering',
-      year: '2022',
-      position: 'Process Engineer at Green Energy Co.'
-    },
-    {
-      id: 2,
-      name: 'Michelle Park',
-      degree: 'M.S. in Materials Science',
-      year: '2021',
-      position: 'Ph.D. Student at Stanford University'
-    },
-    {
-      id: 3,
-      name: 'Kevin Zhang',
-      degree: 'M.S. in Chemical Engineering',
-      year: '2020',
-      position: 'Research Engineer at Battery Technologies Ltd.'
-    },
-    {
-      id: 4,
-      name: 'Sophia Lee',
-      degree: 'M.S. in Materials Science',
-      year: '2019',
-      position: 'Product Developer at Advanced Materials Inc.'
-    }
-  ];
-
-  const undergradAlumni = [
-    {
-      id: 1,
-      name: 'Daniel Kim',
-      degree: 'B.S. in Chemical Engineering',
-      year: '2022',
-      position: 'Graduate Student at MIT'
-    },
-    {
-      id: 2,
-      name: 'Rachel Johnson',
-      degree: 'B.S. in Chemistry',
-      year: '2021',
-      position: 'Research Assistant at University of California'
-    }
-  ];
-
   return (
     <PageContainer>
+      {/* Background shapes */}
+      <Shape1 />
+      <Shape2 />
+      <Shape3 />
+      
       <PageHeader>
         <Title>Alumni</Title>
-        <p>Former members of our laboratory who have contributed to our research and moved on to new opportunities.</p>
+        <Description>
+          Former members of our laboratory who have gone on to successful careers in academia, industry, and research institutions.
+        </Description>
       </PageHeader>
 
-      <AlumniSection>
-        <SectionTitle>Ph.D. Alumni</SectionTitle>
-        <AlumniList>
-          {phDAlumni.map(alumni => (
-            <AlumniCard key={alumni.id}>
-              <AlumniName>{alumni.name}</AlumniName>
-              <AlumniDegree>{alumni.degree}</AlumniDegree>
-              <AlumniYear>Graduated: {alumni.year}</AlumniYear>
-              <AlumniPosition>Current: {alumni.position}</AlumniPosition>
-            </AlumniCard>
-          ))}
-        </AlumniList>
-      </AlumniSection>
-
-      <AlumniSection>
-        <SectionTitle>Master's Alumni</SectionTitle>
-        <AlumniList>
-          {mastersAlumni.map(alumni => (
-            <AlumniCard key={alumni.id}>
-              <AlumniName>{alumni.name}</AlumniName>
-              <AlumniDegree>{alumni.degree}</AlumniDegree>
-              <AlumniYear>Graduated: {alumni.year}</AlumniYear>
-              <AlumniPosition>Current: {alumni.position}</AlumniPosition>
-            </AlumniCard>
-          ))}
-        </AlumniList>
-      </AlumniSection>
-
-      <AlumniSection>
-        <SectionTitle>Undergraduate Alumni</SectionTitle>
-        <AlumniList>
-          {undergradAlumni.map(alumni => (
-            <AlumniCard key={alumni.id}>
-              <AlumniName>{alumni.name}</AlumniName>
-              <AlumniDegree>{alumni.degree}</AlumniDegree>
-              <AlumniYear>Graduated: {alumni.year}</AlumniYear>
-              <AlumniPosition>Current: {alumni.position}</AlumniPosition>
-            </AlumniCard>
-          ))}
-        </AlumniList>
-      </AlumniSection>
+      <AlumniGrid>
+        {alumniData && alumniData.length > 0 ? (
+          alumniData.map((alumni, index) => (
+            <AlumniCard key={index} alumni={alumni} index={index} />
+          ))
+        ) : (
+          <EmptyMessage>No alumni data available at this time.</EmptyMessage>
+        )}
+      </AlumniGrid>
     </PageContainer>
   );
 };

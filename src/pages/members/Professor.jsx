@@ -1,34 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { theme, breakpoints } from '../../styles/GlobalStyles';
+import { professorData } from '../../data/Members/Professor';
+import Timeline from '../../components/members/Timeline';
+import PublicationTabs from '../../components/members/PublicationTabs';
+import CollapsibleSection from '../../components/members/CollapsibleSection';
 
 const PageContainer = styled.div`
-  padding: 1rem 0;
+  padding: 6rem 0 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  @media (max-width: ${breakpoints.desktop}) {
+    padding: 6rem 2rem 3rem;
+  }
+  
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 6rem 1rem 2rem;
+  }
 `;
 
 const ProfileSection = styled.section`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   
-  @media (min-width: 768px) {
+  @media (min-width: ${breakpoints.tablet}) {
     flex-direction: row;
   }
 `;
 
 const ImageContainer = styled.div`
   flex: 0 0 300px;
+  
+  @media (max-width: ${breakpoints.tablet}) {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+  }
 `;
 
-const ProfileImage = styled.div`
+const ProfileImage = styled.img`
   width: 100%;
-  height: 350px;
-  background-color: #f0f0f0;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #666;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
 `;
 
 const ProfileInfo = styled.div`
@@ -36,105 +55,186 @@ const ProfileInfo = styled.div`
 `;
 
 const Name = styled.h1`
-  font-size: 2rem;
-  color: #333;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, ${theme.primary} 0%, ${theme.secondary} 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 0.5rem;
+  
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 2rem;
+  }
 `;
 
 const Position = styled.h2`
   font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 1rem;
+  color: ${theme.textLight};
+  margin-bottom: 1.5rem;
   font-weight: 500;
 `;
 
 const ContactInfo = styled.div`
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, ${theme.white} 0%, #f5f9ff 100%);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid ${theme.secondary};
 `;
 
 const ContactItem = styled.p`
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  &:nth-child(odd) strong {
+    color: ${theme.primary};
+    min-width: 60px;
+  }
+  
+  &:nth-child(even) strong {
+    color: ${theme.secondary};
+    min-width: 60px;
+  }
 `;
 
-const Section = styled.section`
-  margin-bottom: 2rem;
+const ContactLink = styled.a`
+  color: ${theme.text};
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: ${theme.secondary};
+  }
 `;
 
-const SectionTitle = styled.h3`
-  font-size: 1.3rem;
-  color: #444;
+const ContentGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const ResearchInterests = styled.div`
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+`;
+
+const InterestTag = styled.span`
+  background: ${props => props.index % 3 === 0 ? 
+    `linear-gradient(135deg, ${theme.primary} 0%, ${theme.secondary} 100%)` : 
+    props.index % 3 === 1 ? 
+    `linear-gradient(135deg, ${theme.secondary} 0%, ${theme.accent} 100%)` :
+    `linear-gradient(135deg, ${theme.darkBlue} 0%, ${theme.primary} 100%)`};
+  color: ${theme.white};
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-block;
+`;
+
+const FeaturedPublications = styled.div`
+  margin-top: 1.5rem;
+`;
+
+const FeaturedItem = styled.div`
+  background-color: ${props => props.index % 2 === 0 ? theme.white : '#f5f9ff'};
+  padding: 1rem;
   margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #eee;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border-left: 4px solid ${props => props.index % 2 === 0 ? theme.primary : theme.secondary};
+  color: ${props => props.index % 2 === 0 ? theme.text : theme.darkBlue};
+  
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+const TabsContainer = styled.div`
+  margin-top: 2rem;
 `;
 
 const Professor = () => {
+  const { profile, position, education, career, publications, researchInterests } = professorData;
+  
   return (
     <PageContainer>
       <ProfileSection>
         <ImageContainer>
-          <ProfileImage>Professor Photo Placeholder</ProfileImage>
+          <ProfileImage src={profile.image} alt={profile.name} />
         </ImageContainer>
         
         <ProfileInfo>
-          <Name>Prof. John Doe</Name>
-          <Position>Professor, Department of Chemical Engineering</Position>
+          <Name>{profile.name}</Name>
+          <Position>{position.position}</Position>
           
           <ContactInfo>
             <ContactItem>
-              <strong>Email:</strong> professor@university.edu
+              <strong>Tel:</strong> {profile.contact.tel}
             </ContactItem>
             <ContactItem>
-              <strong>Office:</strong> Engineering Building, Room 123
+              <strong>Email:</strong> 
+              <ContactLink href={`mailto:${profile.contact.email}`}>
+                {profile.contact.email}
+              </ContactLink>
             </ContactItem>
             <ContactItem>
-              <strong>Phone:</strong> +1-234-567-8900
+              <strong>Office:</strong> {profile.contact.office}
             </ContactItem>
           </ContactInfo>
           
-          <Section>
-            <SectionTitle>Biography</SectionTitle>
-            <p>
-              Professor John Doe received his Ph.D. in Chemical Engineering from Stanford University in 2005.
-              Before joining our university, he worked as a postdoctoral researcher at MIT and as an assistant
-              professor at UC Berkeley. His research interests include electrochemical materials, catalysis,
-              and energy storage technologies.
-            </p>
-          </Section>
+          <CollapsibleSection title="Research Interests" defaultOpen={true}>
+            <ResearchInterests>
+              {researchInterests.map((interest, index) => (
+                <InterestTag key={index} index={index}>{interest}</InterestTag>
+              ))}
+            </ResearchInterests>
+          </CollapsibleSection>
         </ProfileInfo>
       </ProfileSection>
       
-      <Section>
-        <SectionTitle>Research Interests</SectionTitle>
-        <ul>
-          <li>Electrochemical energy conversion and storage</li>
-          <li>Catalyst design and characterization</li>
-          <li>Nanomaterials synthesis and applications</li>
-          <li>Fuel cell technology</li>
-          <li>Advanced battery materials</li>
-        </ul>
-      </Section>
+      <ContentGrid>
+        <CollapsibleSection title="Education" defaultOpen={true}>
+          <Timeline items={education} />
+        </CollapsibleSection>
+        
+        <CollapsibleSection title="Career" defaultOpen={true}>
+          <Timeline items={career} />
+        </CollapsibleSection>
+      </ContentGrid>
       
-      <Section>
-        <SectionTitle>Education</SectionTitle>
-        <ul>
-          <li>Ph.D. in Chemical Engineering, Stanford University, 2005</li>
-          <li>M.S. in Materials Science, MIT, 2000</li>
-          <li>B.S. in Chemistry, University of Michigan, 1998</li>
-        </ul>
-      </Section>
+      <CollapsibleSection title="Featured Publications">
+        <FeaturedPublications>
+          {publications.featured.map((publication, index) => (
+            <FeaturedItem key={index} index={index}>{publication}</FeaturedItem>
+          ))}
+        </FeaturedPublications>
+      </CollapsibleSection>
       
-      <Section>
-        <SectionTitle>Selected Publications</SectionTitle>
-        <ul>
-          <li>Doe, J., et al. "Advanced Catalysts for Fuel Cell Applications." Journal of Energy Materials, 2022.</li>
-          <li>Doe, J., et al. "Novel Electrode Materials for High-Performance Batteries." Advanced Energy Materials, 2020.</li>
-          <li>Doe, J., et al. "Nanostructured Catalysts for Electrochemical CO2 Reduction." Nature Catalysis, 2018.</li>
-        </ul>
-      </Section>
+      <CollapsibleSection title="Publications by Year">
+        <TabsContainer>
+          <PublicationTabs publications={publications} />
+        </TabsContainer>
+      </CollapsibleSection>
     </PageContainer>
   );
 };
