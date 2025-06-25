@@ -54,11 +54,11 @@ export const professorData = {
   // Publications are organized by year for better organization
   publications: {
     featured: [
+      "Switching on Electrocatalytic Activity in Solid Oxide Cells, NATURE, 제537권(집), 제7621호, PP.528~528, 2016.09.01",
       "SWCNT/MWCNT binderless hybrid hydrogel: Towards large-scale high-performance EMI shielding coating at commercial level, CARBON, 제238권(집), 2025.05.05",
       "Toward flexible ceramic fuel cells: Switching off brittleness in zirconia-based electrolytes, Chemical Engineering Journal, 제510권(집), 2025.04.15",
       "Exsolution Modeling and Control to Improve the Catalytic Activity of Nanostructured Electrodes, ADVANCED MATERIALS, 제35권(집), 제16호, 2023.04.01",
       "Emerging Exsolution Materials for Diverse Energy Applications: Design, Mechanism, and Future Prospects, CHEMISTRY OF MATERIALS, 제35권(집), 제10호, PP.3745~3764, 2023.03.30",
-      "Switching on Electrocatalytic Activity in Solid Oxide Cells, NATURE, 제537권(집), 제7621호, PP.528~528, 2016.09.01"
     ],
     byYear: {
       "2025": [
