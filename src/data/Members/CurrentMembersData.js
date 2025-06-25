@@ -3,8 +3,7 @@ export const currentMembersData = {
   postDoctors: [
     {
       name: "Yo Han Kim",
-      image: "",  // Using empty string to trigger placeholder
-      // Original path: "/src/assets/images/Memebers/CurrentMemebers/PostDoctor/Ph_D_Yo Han Kim.jpg"
+      image: "/src/assets/images/Memebers/CurrentMemebers/PostDoctor/Ph_D_Yo Han Kim.jpg",
       career: [
         "Ph.D.,Incheon National University, 2025",
         "M.S., Incheon National University, 2021",
@@ -16,8 +15,7 @@ export const currentMembersData = {
   doctoralCourse: [
     {
       name: "Hyeongwon Jeong",
-      image: "",  // Using empty string to trigger placeholder
-      // Original path: "/src/assets/images/Memebers/CurrentMemebers/Doctor/Dr_Hyeongwon Jeong.jpg"
+      image: "/src/assets/images/Memebers/CurrentMemebers/Doctor/Dr_Hyeongwon Jeong.jpg",
       career: [
         "Ph.D. Course at Incheon National University, 2021~",
         "B.S., Incheon National University, 2021"
@@ -26,8 +24,7 @@ export const currentMembersData = {
     },
     {
       name: "Bo-Ram Won",
-      image: "",  // Using empty string to trigger placeholder
-      // Original path: "/src/assets/images/Memebers/CurrentMemebers/Doctor/Dr_Bo-Ram Won.png"
+      image: "/src/assets/images/Memebers/CurrentMemebers/Doctor/Dr_Bo-Ram Won.png",
       career: [
         "Ph.D. Course at Incheon National University, 2023~",
         "M.S., Incheon National University, 2023",
@@ -37,8 +34,7 @@ export const currentMembersData = {
     },
     {
       name: "Jong Hyeon Kim",
-      image: "",  // Using empty string to trigger placeholder
-      // Original path: "/src/assets/images/Memebers/CurrentMemebers/Doctor/Dr_Jong Hyeon Kim.png"
+      image: "/src/assets/images/Memebers/CurrentMemebers/Doctor/Dr_Jong Hyeon Kim.png",
       career: [
         "Ph.D. Course at Incheon National University, 2024~",
         "B.S., Incheon National University, 2024"
@@ -47,8 +43,7 @@ export const currentMembersData = {
     },
     {
       name: "Wonjun Jang",
-      image: "",  // Using empty string to trigger placeholder
-      // Original path: "/src/assets/images/Memebers/CurrentMemebers/Doctor/Dr_Wonjun Jang.jpg"
+      image: "/src/assets/images/Memebers/CurrentMemebers/Doctor/Dr_Wonjun Jang.jpg",
       career: [
         "Ph.D. Course at Incheon National University, 2025~",
         "B.S., Incheon National University, 2025"
@@ -59,8 +54,7 @@ export const currentMembersData = {
   masterCourse: [
     {
       name: "Ye-eun Kim",
-      image: "",  // Using empty string to trigger placeholder
-      // Original path: "/src/assets/images/Memebers/CurrentMemebers/Master/Ms_Ye-eun Kim.png"
+      image: "/src/assets/images/Memebers/CurrentMemebers/Master/Ms_Ye-eun Kim.png",
       career: [
         "M.S. Course at Incheon National University, 2023~",
         "B.S., Incheon National University, 2023"
@@ -69,8 +63,7 @@ export const currentMembersData = {
     },
     {
       name: "Somi Lee",
-      image: "",  // Using empty string to trigger placeholder
-      // Original path: "/src/assets/images/Memebers/CurrentMemebers/Master/Ms_Somi Lee.jpg"
+      image: "/src/assets/images/Memebers/CurrentMemebers/Master/Ms_Somi Lee.jpg",
       career: [
         "M.S. Course at Incheon National University, 2023~",
         "B.S., Incheon National University, 2023"
@@ -79,8 +72,7 @@ export const currentMembersData = {
     },
     {
       name: "DaHyun Han",
-      image: "",  // Using empty string to trigger placeholder
-      // Original path: "/src/assets/images/Memebers/CurrentMemebers/Master/Ms_DaHyun Han.jpg"
+      image: "/src/assets/images/Memebers/CurrentMemebers/Master/Ms_DaHyun Han.jpg",
       career: [
         "M.S. Course at Incheon National University, 2024~",
         "B.S., Incheon National University, 2024"
@@ -91,8 +83,7 @@ export const currentMembersData = {
   interns: [
     {
       name: "Jun-Young Park",
-      image: "",  // Using empty string to trigger placeholder
-      // Original path: "/src/assets/images/Memebers/CurrentMemebers/Intern/Intern_Jun-Young Park.jpg"
+      image: "/src/assets/images/Memebers/CurrentMemebers/Intern/Intern_Jun-Young Park.jpg",
       career: [
         "Undergraduate Research Intern, 2023~"
       ],
@@ -100,8 +91,7 @@ export const currentMembersData = {
     },
     {
       name: "So Yeon Park",
-      image: "",  // Using empty string to trigger placeholder
-      // Original path: "/src/assets/images/Memebers/CurrentMemebers/Intern/Intern_So Yeon Park.jpg"
+      image: "/src/assets/images/Memebers/CurrentMemebers/Intern/Intern_So Yeon Park.jpg",
       career: [
         "Undergraduate Research Intern, 2023~"
       ],
@@ -109,15 +99,14 @@ export const currentMembersData = {
     },
     {
       name: "Seung Min Baek",
-      image: "",  // Using empty string to trigger placeholder
-      // Original path: "/src/assets/images/Memebers/CurrentMemebers/Intern/Intern_Seung Min Baek.jpg"
+      image: "/src/assets/images/Memebers/CurrentMemebers/Intern/Intern_Seung Min Baek.jpg",
       career: [
         "Undergraduate Research Intern, 2025~"
       ],
       researchFields: ["Protonic Ceramic Fuel Cells"]
     },
     {
-      name: "Ho-Young Seong",
+      name: "Ho Young Seong",
       image: "",
       career: [
         "Undergraduate Research Intern, 2025~"
