@@ -1,76 +1,148 @@
 import React from 'react';
 import styled from 'styled-components';
+import { fcecData } from '../../data/Research/fcecData';
+import ResearchSection from '../../components/Research/ResearchSection';
+import { theme, breakpoints } from '../../styles/GlobalStyles';
+import { motion } from 'framer-motion';
+
+const PageWrapper = styled.div`
+  background: linear-gradient(to bottom, ${theme.light}, #ffffff);
+  min-height: 100vh;
+`;
 
 const PageContainer = styled.div`
-  padding: 1rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 2rem 1rem;
+  }
 `;
 
 const PageHeader = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(90deg, ${theme.primary}, ${theme.accent});
+    border-radius: 2px;
+  }
 `;
 
 const Title = styled.h1`
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  color: ${theme.dark};
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, ${theme.primary}, ${theme.accent});
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 2.5rem;
+  }
+  
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 2rem;
+  }
 `;
 
 const Description = styled.p`
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  color: ${theme.textLight};
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+  
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
 `;
 
-const Section = styled.section`
-  margin-bottom: 2.5rem;
+const Divider = styled.div`
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, ${theme.border}, transparent);
+  margin: 2rem 0;
 `;
 
-const SectionTitle = styled.h2`
-  font-size: 1.5rem;
-  color: #444;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #eee;
+const ContentContainer = styled.div`
+  position: relative;
+  min-height: 300px;
+  margin-top: 2rem;
 `;
+
+// 애니메이션 변수 정의
+const pageVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" } 
+  },
+  exit: { 
+    opacity: 0, 
+    y: -20,
+    transition: { duration: 0.3 }
+  }
+};
+
+const contentVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
+  }
+};
 
 const FCEC = () => {
+  const researchItems = Object.values(fcecData);
+
   return (
-    <PageContainer>
-      <PageHeader>
-        <Title>Fuel Cells & Electrocatalysis Research</Title>
-        <Description>
-          Our laboratory focuses on developing advanced materials and technologies for fuel cells
-          and electrocatalysis applications, aiming to enhance energy conversion efficiency and sustainability.
-        </Description>
-      </PageHeader>
+    <PageWrapper>
+      <PageContainer as={motion.div} 
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        variants={pageVariants}
+      >
+        <PageHeader>
+          <Title>FCEC (Fuel Cell & Electrolysis Cell)</Title>
+          <Description>
+            Our laboratory focuses on developing advanced materials and technologies for fuel cells
+            and electrolysis cells, aiming to enhance energy conversion efficiency and sustainability.
+          </Description>
+        </PageHeader>
 
-      <Section>
-        <SectionTitle>Research Focus</SectionTitle>
-        <p>
-          Our research in fuel cells and electrocatalysis focuses on developing novel catalysts
-          and understanding fundamental electrochemical processes. We investigate materials that can
-          efficiently catalyze key reactions in fuel cells, such as the oxygen reduction reaction (ORR)
-          and hydrogen oxidation reaction (HOR).
-        </p>
-      </Section>
+        <Divider />
 
-      <Section>
-        <SectionTitle>Current Projects</SectionTitle>
-        <ul>
-          <li>Development of platinum-free catalysts for PEM fuel cells</li>
-          <li>Novel electrocatalysts for CO2 reduction</li>
-          <li>Advanced characterization techniques for electrocatalytic materials</li>
-          <li>Computational modeling of catalytic surfaces</li>
-        </ul>
-      </Section>
-
-      <Section>
-        <SectionTitle>Key Achievements</SectionTitle>
-        <p>
-          Placeholder for key achievements in FC/EC research area.
-        </p>
-      </Section>
-    </PageContainer>
+        <ContentContainer>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={contentVariants}
+          >
+            <ResearchSection items={researchItems} />
+          </motion.div>
+        </ContentContainer>
+      </PageContainer>
+    </PageWrapper>
   );
 };
 
