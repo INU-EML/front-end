@@ -17,7 +17,7 @@ import Alumni from './pages/members/Alumni'
 
 // Other pages
 import Publications from './pages/publications/Publications'
-import News from './pages/News'
+import News from './pages/news/News'
 import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 
