@@ -3,7 +3,7 @@ export const professorData = {
   position: "Associate Professor, Department of Materials Science and Engineering, Incheon National University",
   description: "A leading researcher in electrochemical energy conversion and next-generation fuel cell technologies.",
   image: "/src/assets/images/Home/Jae-ha Myung.jpg",
-  profileLink: "/pages/members/Professor",
+  profileLink: "/members/Professor",
   contact: [
     {
       label: "Email",
