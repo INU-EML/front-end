@@ -252,7 +252,7 @@ const Navbar = () => {
     <NavContainer>
       <NavInner>
         <Logo to="/">
-          <LogoImage src="/public/images/INUEML_logo.png" alt="EML Lab Logo" />
+          <LogoImage src="/images/INUEML_logo.png" alt="EML Lab Logo" />
         </Logo>
         
         <MobileMenuButton onClick={toggleMobileMenu}>
