@@ -87,7 +87,45 @@ const FooterText = styled.p`
 const FooterAddress = styled.address`
   font-style: normal;
   color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+`;
+
+const ContactInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  
+  a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: ${theme.accent};
+    }
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    i {
+      color: ${theme.accent};
+      width: 16px;
+    }
+  }
+  
+  @media (max-width: ${breakpoints.mobile}) {
+    .contact-item {
+      justify-content: center;
+    }
+  }
 `;
 
 const Copyright = styled.div`
@@ -137,11 +175,18 @@ const MainLayout = ({ children }) => {
       <Footer>
         <FooterContainer>
           <FooterSection>
-            <FooterTitle>About EML</FooterTitle>
+            <FooterTitle>Research Focus</FooterTitle>
             <FooterText>
-            Energy Materials Laboratary (EML) at Incheon National University, led by Prof. Jae-ha Myung, is actively involved in diverse research projects concerning solid oxide cells (SOCs) and energy conversion materials.<br/>
-            Our research primarily focuses on developing multifunctional materials for sustainable energy conversion and hydrogen/syngas generation through electrochemistry and catalysis.
-            </FooterText>          
+              Our laboratory specializes in advanced energy materials research with focus on:
+            </FooterText>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '12px' }}>
+              <span style={{ background: 'rgba(255,255,255,0.1)', padding: '4px 10px', borderRadius: '4px', fontSize: '0.85rem', color: 'rgba(255,255,255,0.8)' }}>SOFC/EC</span>
+              <span style={{ background: 'rgba(255,255,255,0.1)', padding: '4px 10px', borderRadius: '4px', fontSize: '0.85rem', color: 'rgba(255,255,255,0.8)' }}>PCFC</span>
+              <span style={{ background: 'rgba(255,255,255,0.1)', padding: '4px 10px', borderRadius: '4px', fontSize: '0.85rem', color: 'rgba(255,255,255,0.8)' }}>MCEC</span>
+              <span style={{ background: 'rgba(255,255,255,0.1)', padding: '4px 10px', borderRadius: '4px', fontSize: '0.85rem', color: 'rgba(255,255,255,0.8)' }}>Exsolution</span>
+              <span style={{ background: 'rgba(255,255,255,0.1)', padding: '4px 10px', borderRadius: '4px', fontSize: '0.85rem', color: 'rgba(255,255,255,0.8)' }}>Nanocomposite</span>
+              <span style={{ background: 'rgba(255,255,255,0.1)', padding: '4px 10px', borderRadius: '4px', fontSize: '0.85rem', color: 'rgba(255,255,255,0.8)' }}>Metal-air battery</span>
+            </div>
           </FooterSection>
           
           <FooterSection>
@@ -159,14 +204,18 @@ const MainLayout = ({ children }) => {
               Department of Materials Science & Engineering<br />
               Incheon National University, Room 377, Bldg. No. 8<br />
               119 Academy-ro, Yeonsu-gu<br />
-              Incheon 22012, South Korea<br/>
-              Email: mjaeha@inu.ac.kr<br/>
-              Seoul, South Korea
+              Incheon 22012, South Korea
             </FooterAddress>
-            <FooterText>
-              Email: contact@emllab.com<br />
-              Phone: +82-2-123-4567
-            </FooterText>
+            <ContactInfo>
+              <div className="contact-item">
+                <i className="fas fa-envelope"></i>
+                <a href="mailto:mjaeha@inu.ac.kr">mjaeha@inu.ac.kr</a>
+              </div>
+              <div className="contact-item">
+                <i className="fas fa-phone"></i>
+                <span>+82-32-835-8407</span>
+              </div>
+            </ContactInfo>
           </FooterSection>
         </FooterContainer>
         
