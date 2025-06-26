@@ -114,13 +114,21 @@ const ContactLink = styled.a`
 `;
 
 const ContentGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   margin-bottom: 3rem;
   
+  & > div {
+    flex: 1 1 calc(50% - 1rem);
+    min-width: 300px;
+    align-self: flex-start;
+  }
+  
   @media (max-width: ${breakpoints.tablet}) {
-    grid-template-columns: 1fr;
+    & > div {
+      flex: 1 1 100%;
+    }
   }
 `;
 

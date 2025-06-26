@@ -44,8 +44,11 @@ const ToggleIcon = styled.span`
 const SectionContent = styled.div`
   padding: ${props => props.isOpen ? '1.5rem' : '0'};
   max-height: ${props => props.isOpen ? '2000px' : '0'};
+  opacity: ${props => props.isOpen ? '1' : '0'};
   overflow: hidden;
   transition: all 0.5s ease;
+  visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
+  height: ${props => props.isOpen ? 'auto' : '0'};
 `;
 
 const CollapsibleSection = ({ title, children, defaultOpen = false }) => {
