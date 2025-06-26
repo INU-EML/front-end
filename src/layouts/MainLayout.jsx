@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { theme, breakpoints } from '../styles/GlobalStyles';
 
@@ -60,7 +61,7 @@ const FooterTitle = styled.h3`
   }
 `;
 
-const FooterLink = styled.a`
+const FooterLink = styled(Link)`
   display: block;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0.8rem;
@@ -145,11 +146,11 @@ const MainLayout = ({ children }) => {
           
           <FooterSection>
             <FooterTitle>Quick Links</FooterTitle>
-            <FooterLink href="/research/fc-ec">Fuel Cell Research</FooterLink>
-            <FooterLink href="/research/nanocatalyst">Nanocatalyst</FooterLink>
-            <FooterLink href="/research/battery">Battery Technology</FooterLink>
-            <FooterLink href="/publications">Publications</FooterLink>
-            <FooterLink href="/members/professor">Meet Our Team</FooterLink>
+            <FooterLink to="/research/fc-ec">Fuel Cell Research</FooterLink>
+            <FooterLink to="/research/nanocatalyst">Nanocatalyst</FooterLink>
+            <FooterLink to="/research/battery">Battery Technology</FooterLink>
+            <FooterLink to="/publications">Publications</FooterLink>
+            <FooterLink to="/members/professor">Meet Our Team</FooterLink>
           </FooterSection>
           
           <FooterSection>
