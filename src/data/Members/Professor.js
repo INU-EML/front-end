@@ -149,10 +149,11 @@ export const professorData = {
     }
   },
   researchInterests: [
-    "Fuel Cell & Electrolyzer",
-    "Nanocatalyst Design",
-    "Metal-air Battery",
-    "Electrochemical Energy Conversion",
-    "Advanced Materials for Energy Applications"
+    "SOFC/EC",
+    "PCFC",
+    "MCEC",
+    "Exsolution",
+    "Nanocomposite",
+    "Metal-air battery"
   ]
 };
