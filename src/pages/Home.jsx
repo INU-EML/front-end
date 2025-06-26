@@ -154,7 +154,7 @@ const HeroButtons = styled.div`
   margin-top: 2rem;
 `;
 
-const PrimaryButton = styled(Link)`
+const PrimaryButton = styled.button`
   display: inline-block;
   background: linear-gradient(135deg, ${theme.secondary} 0%, ${theme.accent} 100%);
   color: ${theme.white};
@@ -535,8 +535,8 @@ const Home = () => {
               <span>▼</span>
             </ReadMoreButton>
             <HeroButtons>
-              <PrimaryButton to="/research">Our Research</PrimaryButton>
-              <SecondaryButton to="/about">About Us</SecondaryButton>
+              <PrimaryButton onClick={() => document.getElementById('research').scrollIntoView({ behavior: 'smooth' })}>Our Research</PrimaryButton>
+              <SecondaryButton to="/gallery">Our Life</SecondaryButton>
             </HeroButtons>
           </HeroContent>
         </HeroContainer>
