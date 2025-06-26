@@ -276,6 +276,7 @@ const ResearchSlider = styled.div`
 const SliderDots = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 0.5rem;
   margin-top: 1.5rem;
 `;
@@ -346,6 +347,7 @@ const PublicationsScroll = styled.div`
 const PublicationsDots = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 0.5rem;
   margin-top: 1.5rem;
 `;
@@ -362,6 +364,52 @@ const PublicationDot = styled.button`
   
   &:hover {
     background: ${props => props.active ? theme.accent : theme.secondary};
+  }
+`;
+
+const NavigationButton = styled.button`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: ${theme.primary};
+  color: ${theme.white};
+  border: none;
+  box-shadow: 0 3px 8px rgba(0, 102, 204, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 10px;
+  
+  &:hover {
+    background: ${theme.secondary};
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.4);
+    transform: scale(1.05);
+  }
+  
+  &:disabled {
+    background: ${theme.border};
+    color: ${theme.textLight};
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: scale(1);
+  }
+  
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+  
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    margin: 0 5px;
   }
 `;
 
@@ -498,6 +546,29 @@ const Home = () => {
     setAutoScrollEnabled(false); // Disable auto-scroll when manually navigating
   };
   
+  // Handle navigation button clicks for Research
+  const handleResearchNavigation = (direction) => {
+    if (sliderRef.current) {
+      const cardWidth = 360 + 24; // card width + gap
+      let newIndex;
+      
+      if (direction === 'prev') {
+        newIndex = Math.max(0, activeIndex - 1);
+      } else {
+        newIndex = Math.min(researchData.length - 1, activeIndex + 1);
+      }
+      
+      const scrollLeft = newIndex * cardWidth;
+      
+      sliderRef.current.scrollTo({
+        left: scrollLeft,
+        behavior: 'smooth'
+      });
+      setActiveIndex(newIndex);
+    }
+    setAutoScrollEnabled(false); // Disable auto-scroll when manually navigating
+  };
+  
   // Handle dot click for Publications navigation
   const handlePublicationDotClick = (index) => {
     if (publicationsRef.current) {
@@ -509,6 +580,29 @@ const Home = () => {
         behavior: 'smooth'
       });
       setActivePublicationIndex(index);
+    }
+    setAutoPublicationsScrollEnabled(false); // Disable auto-scroll when manually navigating
+  };
+  
+  // Handle navigation button clicks for Publications
+  const handlePublicationNavigation = (direction) => {
+    if (publicationsRef.current) {
+      const cardWidth = 320 + 24; // card width + gap
+      let newIndex;
+      
+      if (direction === 'prev') {
+        newIndex = Math.max(0, activePublicationIndex - 1);
+      } else {
+        newIndex = Math.min(publicationData.length - 1, activePublicationIndex + 1);
+      }
+      
+      const scrollLeft = newIndex * cardWidth;
+      
+      publicationsRef.current.scrollTo({
+        left: scrollLeft,
+        behavior: 'smooth'
+      });
+      setActivePublicationIndex(newIndex);
     }
     setAutoPublicationsScrollEnabled(false); // Disable auto-scroll when manually navigating
   };
@@ -567,6 +661,14 @@ const Home = () => {
             </ResearchSlider>
             
             <SliderDots>
+              <NavigationButton 
+                onClick={() => handleResearchNavigation('prev')}
+                disabled={activeIndex === 0}
+                aria-label="Previous research area"
+              >
+                &#10094;
+              </NavigationButton>
+              
               {researchData.map((_, index) => (
                 <SliderDot 
                   key={index} 
@@ -574,6 +676,14 @@ const Home = () => {
                   onClick={() => handleDotClick(index)}
                 />
               ))}
+              
+              <NavigationButton 
+                onClick={() => handleResearchNavigation('next')}
+                disabled={activeIndex === researchData.length - 1}
+                aria-label="Next research area"
+              >
+                &#10095;
+              </NavigationButton>
             </SliderDots>
           </ResearchSliderContainer>
         </SectionContainer>
@@ -601,6 +711,14 @@ const Home = () => {
           </PublicationsScroll>
           
           <PublicationsDots>
+            <NavigationButton 
+              onClick={() => handlePublicationNavigation('prev')}
+              disabled={activePublicationIndex === 0}
+              aria-label="Previous publication"
+            >
+              &#10094;
+            </NavigationButton>
+            
             {publicationData.map((_, index) => (
               <PublicationDot 
                 key={index} 
@@ -608,6 +726,14 @@ const Home = () => {
                 onClick={() => handlePublicationDotClick(index)}
               />
             ))}
+            
+            <NavigationButton 
+              onClick={() => handlePublicationNavigation('next')}
+              disabled={activePublicationIndex === publicationData.length - 1}
+              aria-label="Next publication"
+            >
+              &#10095;
+            </NavigationButton>
           </PublicationsDots>
         </PublicationsContainer>
       </PublicationsSection>
