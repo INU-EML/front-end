@@ -6,7 +6,7 @@ export const professorData = {
     contact: {
       tel: "+82-32-835-8407",
       email: "mjaeha@inu.ac.kr",
-      office: "Department of Materials Science & Engineering, Incheon National University, Room 377, Bldg. No. 8"
+      office: "Room 377, Bldg. No 8, Incheon National University"
     }
   },
   position: {
