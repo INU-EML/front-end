@@ -149,7 +149,7 @@ export const professorData = {
     }
   },
   researchInterests: [
-    "SOFC/EC",
+    "SOFC/EC",
     "PCFC",
     "MCEC",
     "Exsolution",
