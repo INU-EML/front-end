@@ -1,7 +1,7 @@
 export const alumniData = [
   {
     name: "Jong Hyeok Noh",
-    image: "/public/images/Memebers/Alumni/Jong Hyeok Noh .jpg",
+    image: "/images/Memebers/Alumni/Jong Hyeok Noh .jpg",
     currentAffiliation: [
       "R&D, Hyundai Motors, 2020~"
     ],
@@ -11,7 +11,7 @@ export const alumniData = [
   },
   {
     name: "Eun Seo Lee",
-    image: "/public/images/Memebers/Alumni/Eun Seo Lee.jpg", 
+    image: "/images/Memebers/Alumni/Eun Seo Lee.jpg", 
     currentAffiliation: [
       ""
     ],
@@ -21,7 +21,7 @@ export const alumniData = [
   },
   {
     name: "Seungyeon Jo",
-    image: "/public/images/Memebers/Alumni/Seungyeon Jo.jpg",  
+    image: "/images/Memebers/Alumni/Seungyeon Jo.jpg",  
     currentAffiliation: [
       "R&D, SK on, 2023~"
     ],
@@ -33,7 +33,7 @@ export const alumniData = [
 
   {
     name: "Dahee Kang",
-    image: "/public/images/Memebers/Alumni/Dahee Kang .jpg", 
+    image: "/images/Memebers/Alumni/Dahee Kang .jpg", 
     currentAffiliation: [
       "R&D, Bsg materials, 2022~",
     ],
@@ -53,7 +53,7 @@ export const alumniData = [
   },
   {
     name: "Hyejin Jeon",
-    image: "/public/images/Memebers/Alumni/Hyejin Jeon.jpg",
+    image: "/images/Memebers/Alumni/Hyejin Jeon.jpg",
     currentAffiliation: [
       ""
     ],
@@ -64,7 +64,7 @@ export const alumniData = [
   },
   {
     name: "Chan-ho Park",
-    image: "/public/images/Memebers/Alumni/Chan-ho Park .jpg",
+    image: "/images/Memebers/Alumni/Chan-ho Park .jpg",
     currentAffiliation: [
       "R&D, Amkor Technology, 2024~"
     ],
@@ -75,7 +75,7 @@ export const alumniData = [
   },
   {
     name: "Dohun Kim",
-    image: "/public/images/Memebers/Alumni/Dohun Kim .jpg",
+    image: "/images/Memebers/Alumni/Dohun Kim .jpg",
     currentAffiliation: [
       "R&D, Samsung Electro-Mechanics, 2025~"
     ],
@@ -85,7 +85,7 @@ export const alumniData = [
   },
   {
     name: "Dayoung Park",
-    image: "/public/images/Memebers/Alumni/Dayoung Park .jpg",
+    image: "/images/Memebers/Alumni/Dayoung Park .jpg",
     currentAffiliation: [
       ""
     ],

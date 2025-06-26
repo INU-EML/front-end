@@ -3,7 +3,7 @@ export const currentMembersData = {
   postDoctors: [
     {
       name: "Yo Han Kim",
-      image: "/public/images/Memebers/CurrentMemebers/PostDoctor/Ph_D_Yo Han Kim.jpg",
+      image: "/images/Memebers/CurrentMemebers/PostDoctor/Ph_D_Yo Han Kim.jpg",
       career: [
         "Ph.D.,Incheon National University, 2025",
         "M.S., Incheon National University, 2021",
@@ -15,7 +15,7 @@ export const currentMembersData = {
   doctoralCourse: [
     {
       name: "Hyeongwon Jeong",
-      image: "/public/images/Memebers/CurrentMemebers/Doctor/Dr_Hyeongwon Jeong.jpg",
+      image: "/images/Memebers/CurrentMemebers/Doctor/Dr_Hyeongwon Jeong.jpg",
       career: [
         "Ph.D. Course at Incheon National University, 2021~",
         "B.S., Incheon National University, 2021"
@@ -24,7 +24,7 @@ export const currentMembersData = {
     },
     {
       name: "Bo-Ram Won",
-      image: "/public/images/Memebers/CurrentMemebers/Doctor/Dr_Bo-Ram Won.png",
+      image: "/images/Memebers/CurrentMemebers/Doctor/Dr_Bo-Ram Won.png",
       career: [
         "Ph.D. Course at Incheon National University, 2023~",
         "M.S., Incheon National University, 2023",
@@ -34,7 +34,7 @@ export const currentMembersData = {
     },
     {
       name: "Jong Hyeon Kim",
-      image: "/public/images/Memebers/CurrentMemebers/Doctor/Dr_Jong Hyeon Kim.png",
+      image: "/images/Memebers/CurrentMemebers/Doctor/Dr_Jong Hyeon Kim.png",
       career: [
         "Ph.D. Course at Incheon National University, 2024~",
         "B.S., Incheon National University, 2024"
@@ -43,7 +43,7 @@ export const currentMembersData = {
     },
     {
       name: "Wonjun Jang",
-      image: "/public/images/Memebers/CurrentMemebers/Doctor/Dr_Wonjun Jang.jpg",
+      image: "/images/Memebers/CurrentMemebers/Doctor/Dr_Wonjun Jang.jpg",
       career: [
         "Ph.D. Course at Incheon National University, 2025~",
         "B.S., Incheon National University, 2025"
@@ -54,7 +54,7 @@ export const currentMembersData = {
   masterCourse: [
     {
       name: "Ye-eun Kim",
-      image: "/public/images/Memebers/CurrentMemebers/Master/Ms_Ye-eun Kim.png",
+      image: "/images/Memebers/CurrentMemebers/Master/Ms_Ye-eun Kim.png",
       career: [
         "M.S. Course at Incheon National University, 2023~",
         "B.S., Incheon National University, 2023"
@@ -63,7 +63,7 @@ export const currentMembersData = {
     },
     {
       name: "Somi Lee",
-      image: "/public/images/Memebers/CurrentMemebers/Master/Ms_Somi Lee.jpg",
+      image: "/images/Memebers/CurrentMemebers/Master/Ms_Somi Lee.jpg",
       career: [
         "M.S. Course at Incheon National University, 2023~",
         "B.S., Incheon National University, 2023"
@@ -72,7 +72,7 @@ export const currentMembersData = {
     },
     {
       name: "DaHyun Han",
-      image: "/public/images/Memebers/CurrentMemebers/Master/Ms_DaHyun Han.jpg",
+      image: "/images/Memebers/CurrentMemebers/Master/Ms_DaHyun Han.jpg",
       career: [
         "M.S. Course at Incheon National University, 2024~",
         "B.S., Incheon National University, 2024"
@@ -83,7 +83,7 @@ export const currentMembersData = {
   interns: [
     {
       name: "Jun-Young Park",
-      image: "/public/images/Memebers/CurrentMemebers/Intern/Intern_Jun-Young Park.jpg",
+      image: "/images/Memebers/CurrentMemebers/Intern/Intern_Jun-Young Park.jpg",
       career: [
         "Undergraduate Research Intern, 2023~"
       ],
@@ -91,7 +91,7 @@ export const currentMembersData = {
     },
     {
       name: "So Yeon Park",
-      image: "/public/images/Memebers/CurrentMemebers/Intern/Intern_So Yeon Park.jpg",
+      image: "/images/Memebers/CurrentMemebers/Intern/Intern_So Yeon Park.jpg",
       career: [
         "Undergraduate Research Intern, 2023~"
       ],
@@ -99,7 +99,7 @@ export const currentMembersData = {
     },
     {
       name: "Seung Min Baek",
-      image: "/public/images/Memebers/CurrentMemebers/Intern/Intern_Seung Min Baek.jpg",
+      image: "/images/Memebers/CurrentMemebers/Intern/Intern_Seung Min Baek.jpg",
       career: [
         "Undergraduate Research Intern, 2025~"
       ],
