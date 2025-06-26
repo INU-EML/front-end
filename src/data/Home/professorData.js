@@ -2,7 +2,7 @@ export const professorData = {
   name: "Prof. Jae-ha Myung",
   position: "Associate Professor, Department of Materials Science and Engineering, Incheon National University",
   description: "A leading researcher in electrochemical energy conversion and next-generation fuel cell technologies.",
-  image: "/src/assets/images/Home/Jae-ha Myung.jpg",
+  image: "/images/Home/Jae-ha Myung.jpg",
   profileLink: "/members/Professor",
   contact: [
     {

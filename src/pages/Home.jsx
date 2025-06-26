@@ -25,7 +25,7 @@ const HeroSection = styled.section`
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('/src/assets/images/Home/home_background.png') center/cover no-repeat;
+    background: url('/public/images/Home/home_background.png') center/cover no-repeat;
     z-index: 0;
   }
   

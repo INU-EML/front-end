@@ -1,17 +1,17 @@
 export const fcecData = {
   sofc: {
     title: "SOFC (Solid Oxide Fuel Cell)",
-    image: "/src/assets/images/Research/FCEC/research_sofc.png",
+    image: "/public/images/Research/FCEC/research_sofc.png",
     description: "Solid oxide cells (SOCs) are electrochemical devices that reversibly convert between chemical energy and electrical energy with high efficiency, playing a central role in energy conversion systems. The SOCs operate to generate electricity by oxidizing fuels and to produce chemicals by electrolyzing H₂O and CO₂. Our group is interested in addressing the inherent challenges of SOCs, such as high operating temperature and brittle ceramics. First, we focus on thin film SOFCs (TF-SOFCs), which improve the structure of electrolytes and electrodes using deposition technologies such as RF sputtering. Second, to enhanced mechanical strength of SOFCs, we design the flexible electrolytes using a phase-controlled zirconia-based materials. Lastly, we aim to achieve structural stability while reducing the materials costs by developing the metal-supported SOCs (MS-SOCs)."
   },
   pcfc: {
     title: "PCFC (Proton Ceramic Fuel Cell)",
-    image: "/src/assets/images/Research/FCEC/research_pcfc.png",
+    image: "/public/images/Research/FCEC/research_pcfc.png",
     description: "Proton Ceramic Fuel Cells (PCFCs) are gaining attention as next-generation fuel cells that can address the challenges of Solid Oxide Fuel Cells (SOFCs), such as catalyst degradation and the need for materials which have high temperature stability, offering high conductivity even at lower temperatures below 600 oC. PCFCs incorporate a proton-conducting oxide as a electrolyte that conducts hydrogen ions (protons) instead of oxygen ions, allowing them to operate at lower temperatures due to the lower activation energy required for proton conduction, as protons are lighter than oxygen ions. Protonic ceramics (BZY, BCY, BZCYYb, etc.) demonstrate higher conductivity than conventional ceramic electrolytes (YSZ, GDC) in the intermediate temperatures (500-600oC), making them a promising material for next-generation fuel cells.\nOur group focuses on employing nanocatalysts to electrode, which can enhance the electrochemical active sites at the intermediate temperatures (500-600 oC). Additionally, we are developing Metal Supported PCFCs (MS-PCFCs) that exhibit enhanced mechanical stability at operating temperatures, owing to the introduction of a metal substrate, in comparison to conventional anode-supported and electrolyte-supported cells."
   },
   mcec: {
     title: "MCEC (Molten Carbonate Electrolysis Cell)",
-    image: "/src/assets/images/Research/FCEC/research_mcec.png",
+    image: "/public/images/Research/FCEC/research_mcec.png",
     description: "Molten Carbonate Electrolysis Cells (MCECs) enable high-temperature water electrolysis with high efficiency, producing hydrogen (H₂) and carbon dioxide (CO₂) simultaneously. The MCECs operate at around 650°C and consists of a fuel electrode made of nickel (Ni), an oxygen electrode made of nickel oxide (NiO), and a molten carbonate electrolyte, such as Li₂CO3/K₂CO3 or Li₂CO3/Na₂CO3. In MCECs, water is reduced at the oxygen electrode, generating hydrogen gas (H₂) and carbonate ions (CO₃²-). The CO₃²- ions then migrate through the electrolyte to the fuel electrode, where they decompose to release CO₂ and oxygen ions, which combine to form O₂ and complete the electrochemical cycle.\nMCECs offer high energy efficiency due to reduced overpotentials and enhanced reaction kinetics at elevated temperatures. However, challenges for commercialization include the dissolution of the NiO oxygen electrode, electrolyte loss and retention issues, matrix cracking, and high-temperature creep and sintering of porous components. Our research focuses on developing highly stable oxygen electrodes with enhanced resistance to Ni dissolution. By optimizing electrode materials and operating conditions, we aim to improve the durability and performance of MCECs, advancing the technology for efficient high-temperature water electrolysis and sustainable production of hydrogen and CO₂."
   }
 };

@@ -2,7 +2,7 @@
 export const professorData = { 
   profile: {
     name: "Prof. Jae-ha Myung",
-    image: "/src/assets/images/Memebers/Professor/Jae-ha Myung.jpg",
+    image: "/public/images/Memebers/Professor/Jae-ha Myung.jpg",
     contact: {
       tel: "+82-32-835-8407",
       email: "mjaeha@inu.ac.kr",
