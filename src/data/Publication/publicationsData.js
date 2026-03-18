@@ -366,7 +366,7 @@ export const publicationsData = [
     title: "Switching on Electrocatalytic Activity in Solid Oxide Cells",
     authors: "Jae-ha Myung#, Dragos Neagu#, David N. Miller and John T.S. Irvine*",
     journal: "Nature 537, 528-531",
-    doi: "http://www.nature.com/doifinder/10.1038/nature19090"
+    doi: "https://doi.org/10.1038/nature19090"
   },
   {
     id: 18,
@@ -390,7 +390,7 @@ export const publicationsData = [
     title: "Structural and electrochemical characterization of K2NiF4 type layered perovskite as cathode for SOFCs",
     authors: "Jae-ha Myung, Youn-Woo Hong, Mi Jai Lee, Dae-Woo Jeon, Young-Jin Lee, Jonghee Hwang, Tae Ho Shin and Jong Hoo Paik",
     journal: "Journal of the Korean Crystal Growth and Crystal Technology 25(3), 116-120",
-    doi: "http://dx.doi.org/10.6111/JKCGCT.2015.25.3.116"
+    doi: "https://doi.org/10.6111/JKCGCT.2015.25.3.116"
   },
   {
     id: 15,

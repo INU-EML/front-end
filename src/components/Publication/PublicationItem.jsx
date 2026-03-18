@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { theme, breakpoints } from '../../styles/GlobalStyles';
 
@@ -13,7 +13,7 @@ const PublicationContainer = styled.div`
     const colors = [theme.primary, theme.secondary, theme.accent, theme.darkBlue];
     return colors[props.index % colors.length];
   }};
-  
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -55,10 +55,38 @@ const PublicationYear = styled.span`
   border-radius: 20px;
 `;
 
+const PublicationContent = styled.div`
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+`;
+
+const PublicationContentLeft = styled.div`
+  flex: 1;
+  min-width: 0;
+`;
+
+const PublicationContentRight = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 150px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    justify-content: flex-start;
+    width: 100%;
+  }
+`;
+
 const PublicationTitle = styled.h3`
   font-size: 1.2rem;
   color: ${theme.darkBlue};
-  margin: 0.8rem 0;
+  margin: 0 0 0.8rem 0;
   font-weight: 600;
   line-height: 1.4;
 `;
@@ -66,15 +94,62 @@ const PublicationTitle = styled.h3`
 const PublicationAuthors = styled.p`
   font-size: 0.95rem;
   color: ${theme.text};
-  margin: 0.5rem 0;
+  margin: 0 0 0.5rem 0;
   font-style: italic;
 `;
 
 const PublicationJournal = styled.p`
   font-size: 0.95rem;
   color: ${theme.darkGray};
-  margin: 0.5rem 0;
+  margin: 0 0 0.8rem 0;
   font-weight: 500;
+`;
+
+const PublicationCitations = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.08), rgba(0, 170, 255, 0.05));
+  border: 1px solid rgba(0, 123, 255, 0.15);
+  border-radius: 12px;
+  min-width: 120px;
+  gap: 0.3rem;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5rem 0;
+    background: transparent;
+    border: none;
+    min-width: auto;
+  }
+`;
+
+const CitationNumber = styled.div`
+  font-size: 2rem;
+  font-weight: 700;
+  color: ${theme.primary};
+  line-height: 1;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 1.2rem;
+  }
+`;
+
+const CitationLabel = styled.div`
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: ${theme.darkGray};
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 0.8rem;
+  }
 `;
 
 const PublicationDoi = styled.a`
@@ -83,16 +158,18 @@ const PublicationDoi = styled.a`
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  margin-top: 0.5rem;
+  margin-top: 0;
   transition: all 0.2s ease;
-  
+  word-break: break-all;
+
   &:hover {
     color: ${theme.secondary};
     text-decoration: underline;
   }
-  
+
   svg {
     margin-right: 0.4rem;
+    flex-shrink: 0;
   }
 `;
 
@@ -103,19 +180,72 @@ const LinkIcon = () => (
   </svg>
 );
 
-const PublicationItem = ({ publication, index }) => {
+/**
+ * PublicationItem Component
+ *
+ * Displays a publication card with citation information.
+ *
+ * Props:
+ * - publication: Publication data object (required)
+ *   - id, year, title, authors, journal, doi
+ * - index: Position in list for styling (required)
+ * - citationCount: Pre-fetched citation count from parent (optional)
+ *   - If provided, uses this value instead of fetching
+ *   - Recommended for performance when loading multiple items
+ * - isLoadingCitation: Whether citation is currently being loaded (optional)
+ *   - Only used if citationCount prop is provided
+ *
+ * Usage:
+ * // With pre-fetched citations (recommended)
+ * <PublicationItem
+ *   publication={pub}
+ *   index={0}
+ *   citationCount={34}
+ *   isLoadingCitation={false}
+ * />
+ */
+const PublicationItem = ({ publication, index, citationCount, isLoadingCitation = false }) => {
+  // Memoize citation display logic to avoid unnecessary recalculations
+  const citationDisplay = useMemo(() => {
+    if (!publication.doi) {
+      return { number: '-', label: 'Citations' };
+    }
+
+    if (isLoadingCitation) {
+      return { number: '...', label: 'Loading' };
+    }
+
+    if (citationCount !== null && citationCount !== undefined && typeof citationCount === 'number') {
+      return { number: citationCount.toString(), label: 'Citations' };
+    }
+
+    return { number: '-', label: 'Citations' };
+  }, [publication.doi, isLoadingCitation, citationCount]);
+
   return (
     <PublicationContainer index={index}>
       <PublicationHeader>
         <PublicationId>#{publication.id}</PublicationId>
         <PublicationYear index={index}>{publication.year}</PublicationYear>
       </PublicationHeader>
-      <PublicationTitle>{publication.title}</PublicationTitle>
-      <PublicationAuthors>{publication.authors}</PublicationAuthors>
-      <PublicationJournal>{publication.journal}</PublicationJournal>
-      <PublicationDoi href={publication.doi} target="_blank" rel="noopener noreferrer">
-        <LinkIcon /> {publication.doi}
-      </PublicationDoi>
+
+      <PublicationContent>
+        <PublicationContentLeft>
+          <PublicationTitle>{publication.title}</PublicationTitle>
+          <PublicationAuthors>{publication.authors}</PublicationAuthors>
+          <PublicationJournal>{publication.journal}</PublicationJournal>
+          <PublicationDoi href={publication.doi} target="_blank" rel="noopener noreferrer">
+            <LinkIcon /> {publication.doi}
+          </PublicationDoi>
+        </PublicationContentLeft>
+
+        <PublicationContentRight>
+          <PublicationCitations>
+            <CitationNumber>{citationDisplay.number}</CitationNumber>
+            <CitationLabel>{citationDisplay.label}</CitationLabel>
+          </PublicationCitations>
+        </PublicationContentRight>
+      </PublicationContent>
     </PublicationContainer>
   );
 };
