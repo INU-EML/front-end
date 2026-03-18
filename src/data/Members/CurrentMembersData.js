@@ -49,7 +49,25 @@ export const currentMembersData = {
         "B.S., Incheon National University, 2025"
       ],
       researchFields: ["Ammonia Fueled Solid Oxide Fuel Cells"]
-    }
+    },    
+    {
+      name: "Jun-Young Park",
+      image: "/images/Memebers/CurrentMemebers/Intern/Intern_Jun-Young Park.jpg",
+      career: [
+        "Ph.D. Course at Incheon National University, 2025~",
+        "B.S., Incheon National University, 2025"
+      ],
+      researchFields: ["Solid Oxide Fuel Cells"]
+    },
+    {
+      name: "Ho Young Seong",
+      image: "",
+      career: [
+        "Ph.D. Course at Incheon National University, 2026~",
+        "B.S., Incheon National University, 2026"
+    ],
+      researchFields: ["Computational SOFC Modeling"]
+    },
   ],
   masterCourse: [
     {
@@ -79,35 +97,28 @@ export const currentMembersData = {
       ],
       researchFields: ["Solid Oxide Fuel Cells", "Sputtering"]
     },
-  ],
-  interns: [
-    {
-      name: "Jun-Young Park",
-      image: "/images/Memebers/CurrentMemebers/Intern/Intern_Jun-Young Park.jpg",
-      career: [
-        "Undergraduate Research Intern, 2023~"
-      ],
-      researchFields: ["Solid Oxide Fuel Cells"]
-    },
     {
       name: "So Yeon Park",
-      image: "/images/Memebers/CurrentMemebers/Intern/Intern_So Yeon Park.jpg",
+      image: "/images/Memebers/CurrentMemebers/Master/Ms_So Yeon Park.jpg",
       career: [
-        "Undergraduate Research Intern, 2023~"
+        "M.S. Course at Incheon National University, 2025~",
+        "B.S., Incheon National University, 2025"
       ],
       researchFields: ["Dry reforming of methane"]
     },
+  ],
+  interns: [
+    // {
+    //   name: "Seung Min Baek",
+    //   image: "/images/Memebers/CurrentMemebers/Intern/Intern_Seung Min Baek.jpg",
+    //   career: [
+    //     "Undergraduate Research Intern, 2025~"
+    //   ],
+    //   researchFields: ["Protonic Ceramic Fuel Cells"]
+    // },
     {
-      name: "Seung Min Baek",
-      image: "/images/Memebers/CurrentMemebers/Intern/Intern_Seung Min Baek.jpg",
-      career: [
-        "Undergraduate Research Intern, 2025~"
-      ],
-      researchFields: ["Protonic Ceramic Fuel Cells"]
-    },
-    {
-      name: "Ho Young Seong",
-      image: "",
+      name: "Soeun Jang",
+      image: "/images/Memebers/CurrentMemebers/Intern/Intern_Soeun Jang.jpg",
       career: [
         "Undergraduate Research Intern, 2025~"
       ],
