@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { theme, breakpoints } from '../../styles/GlobalStyles';
 
 const Card = styled.div`
-  background: ${props => props.index % 2 === 0 ? 
-    theme.white : 
+  background: ${props => props.index % 2 === 0 ?
+    theme.white :
     'linear-gradient(135deg, #f8f9fa 0%, #f0f5ff 100%)'};
   border-radius: 12px;
   overflow: hidden;
@@ -14,7 +14,8 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   border-left: 4px solid ${props => props.index % 2 === 0 ? theme.primary : theme.secondary};
-  
+  cursor: ${props => props.clickable ? 'pointer' : 'default'};
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
@@ -178,7 +179,7 @@ const ResearchField = styled.span`
   display: inline-block;
 `;
 
-const MemberCard = ({ member, index }) => {
+const MemberCard = ({ member, index, onClick }) => {
   // Extract initials for placeholder
   const getInitials = (name) => {
     return name
@@ -189,15 +190,21 @@ const MemberCard = ({ member, index }) => {
   };
 
   const initials = getInitials(member.name);
-  
+
+  const handleClick = () => {
+    if (onClick) {
+      onClick(member);
+    }
+  };
+
   return (
-    <Card index={index}>
+    <Card index={index} clickable={!!onClick} onClick={handleClick}>
       <ImageContainer>
         {member.image ? (
-          <Image 
-            src={member.image} 
-            alt={member.name} 
-            loading="lazy" 
+          <Image
+            src={member.image}
+            alt={member.name}
+            loading="lazy"
             onError={(e) => {
               e.target.style.display = 'none';
               e.target.nextSibling.style.display = 'flex';
@@ -214,13 +221,13 @@ const MemberCard = ({ member, index }) => {
       </ImageContainer>
       <Content>
         <Name>{member.name}</Name>
-        
+
         <CareerList>
           {member.career.map((item, i) => (
             <CareerItem key={i}>{item}</CareerItem>
           ))}
         </CareerList>
-        
+
         <ResearchFieldTitle>Research Fields</ResearchFieldTitle>
         <ResearchFieldsContainer>
           {member.researchFields.map((field, i) => (

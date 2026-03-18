@@ -1,8 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import { theme, breakpoints } from '../../styles/GlobalStyles';
 import { currentMembersData } from '../../data/Members/CurrentMembersData';
+import { publicationsData } from '../../data/Publication/publicationsData';
 import MemberCard from '../../components/members/MemberCard';
+import MemberPublicationsModal from '../../components/members/MemberPublicationsModal';
+import { getMemberPublications } from '../../utils/memberPublicationMatcher';
 
 // Animation keyframes
 const fadeIn = keyframes`
@@ -322,6 +325,19 @@ const Shape3 = styled(BackgroundShape)`
 
 const CurrentMembers = () => {
   const { postDoctors, doctoralCourse, masterCourse, interns } = currentMembersData;
+  const [selectedMember, setSelectedMember] = useState(null);
+  const [memberPublications, setMemberPublications] = useState([]);
+
+  const handleMemberClick = (member) => {
+    setSelectedMember(member);
+    const publications = getMemberPublications(member.name, publicationsData);
+    setMemberPublications(publications);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedMember(null);
+    setMemberPublications([]);
+  };
 
   return (
     <PageContainer>
@@ -329,7 +345,7 @@ const CurrentMembers = () => {
       <Shape1 />
       <Shape2 />
       <Shape3 />
-      
+
       <PageHeader>
         <Title>Current Lab Members</Title>
         <Description>
@@ -345,7 +361,12 @@ const CurrentMembers = () => {
         <MembersGrid>
           {postDoctors && postDoctors.length > 0 ? (
             postDoctors.map((member, index) => (
-              <MemberCard key={index} member={member} index={index} />
+              <MemberCard
+                key={index}
+                member={member}
+                index={index}
+                onClick={handleMemberClick}
+              />
             ))
           ) : (
             <EmptyMessage>Currently no post doctors in the lab.</EmptyMessage>
@@ -361,7 +382,12 @@ const CurrentMembers = () => {
         <MembersGrid>
           {doctoralCourse && doctoralCourse.length > 0 ? (
             doctoralCourse.map((member, index) => (
-              <MemberCard key={index} member={member} index={index} />
+              <MemberCard
+                key={index}
+                member={member}
+                index={index}
+                onClick={handleMemberClick}
+              />
             ))
           ) : (
             <EmptyMessage>Currently no doctoral students in the lab.</EmptyMessage>
@@ -377,7 +403,12 @@ const CurrentMembers = () => {
         <MembersGrid>
           {masterCourse && masterCourse.length > 0 ? (
             masterCourse.map((member, index) => (
-              <MemberCard key={index} member={member} index={index} />
+              <MemberCard
+                key={index}
+                member={member}
+                index={index}
+                onClick={handleMemberClick}
+              />
             ))
           ) : (
             <EmptyMessage>Currently no master students in the lab.</EmptyMessage>
@@ -393,13 +424,27 @@ const CurrentMembers = () => {
         <MembersGrid>
           {interns && interns.length > 0 ? (
             interns.map((member, index) => (
-              <MemberCard key={index} member={member} index={index} />
+              <MemberCard
+                key={index}
+                member={member}
+                index={index}
+                onClick={handleMemberClick}
+              />
             ))
           ) : (
             <EmptyMessage>Currently no interns in the lab.</EmptyMessage>
           )}
         </MembersGrid>
       </SectionContainer>
+
+      {/* Publications Modal */}
+      {selectedMember && (
+        <MemberPublicationsModal
+          member={selectedMember}
+          publications={memberPublications}
+          onClose={handleCloseModal}
+        />
+      )}
     </PageContainer>
   );
 };

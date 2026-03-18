@@ -276,7 +276,7 @@ export const publicationsData = [
     id: 30,
     year: 2019,
     title: "Pd-based ternary alloys used for gas sensing applications: A review",
-    authors: "Bharat Sharma and Jaeha Myung*",
+    authors: "Bharat Sharma and Jae-ha Myung*",
     journal: "International Journal of Hydrogen Energy 44 (57), 30499-30510",
     doi: "https://doi.org/10.1016/j.ijhydene.2019.09.170"
   },
@@ -308,7 +308,7 @@ export const publicationsData = [
     id: 26,
     year: 2019,
     title: "Induction Heating of Cylindrical MoSi2-based Susceptor",
-    authors: "Sung-chul Lee†, Yohan Kim†, Bea-yeon Kim and Jae-ha Myung*",
+    authors: "Sung-chul Lee†, Yo Han Kim†, Bea-yeon Kim and Jae-ha Myung*",
     journal: "Korean Chemical Engineering Research, 57 (4), 553-558",
     doi: "https://doi.org/10.9713/kcer.2019.57.4.553"
   },
@@ -316,7 +316,7 @@ export const publicationsData = [
     id: 25,
     year: 2018,
     title: "Coke-tolerant La2Sn2O7-Ni-Gd0.1Ce0.9O1.95 composite anode for direct methane-fueled solid oxide fuel cells",
-    authors: "Myunggeun Park, Jin Goo Lee, Ok Sung Jeon, Teaho Shin, Jaeha Myung* and Yong Gun Shul*",
+    authors: "Myunggeun Park, Jin Goo Lee, Ok Sung Jeon, Teaho Shin, Jae-ha Myung* and Yong Gun Shul*",
     journal: "Journal of Electroceramics, 40 (4), 323-331",
     doi: "https://doi.org/10.1007/s10832-018-0133-2"
   },
@@ -324,7 +324,7 @@ export const publicationsData = [
     id: 24,
     year: 2018,
     title: "One-step fabrication of surface-decorated inorganic nanowires via single-nozzle electrospinning",
-    authors: "Jin Goo Lee, Ok Sung Jeon, Jaeha Myung and Yong Gun Shul*",
+    authors: "Jin Goo Lee, Ok Sung Jeon, Jae-ha Myung and Yong Gun Shul*",
     journal: "Ceramics International, 44 (10), 11858-11861",
     doi: "https://doi.org/10.1016/j.ceramint.2018.03.280"
   },
@@ -332,7 +332,7 @@ export const publicationsData = [
     id: 23,
     year: 2018,
     title: "Characteristics of Ba(Zr0.1Ce0.7Y0.2)O3-δ nano-powders synthesized by different wet-chemical methods for solid oxide fuel cells",
-    authors: "Sung Hwan Min, Jin Goo Lee, Jaeha Myung, Ok Sung Jeon, Myeong Geun Park, Kwang Hyun Ryu and Yong-Gun Shul*",
+    authors: "Sung Hwan Min, Jin Goo Lee, Jae-ha Myung, Ok Sung Jeon, Myeong Geun Park, Kwang Hyun Ryu and Yong-Gun Shul*",
     journal: "Ceramics International, 44 (1), 433-437",
     doi: "https://doi.org/10.1016/j.ceramint.2017.09.195"
   },
@@ -340,7 +340,7 @@ export const publicationsData = [
     id: 22,
     year: 2017,
     title: "Direct methane fueled solid oxide fuel cells via catalytic partial oxidation enabling complete coking tolerance of Ni based anodes",
-    authors: "Daehee Lee#, Jaeha Myung#, Jeiwan Tan, Sang-Hoon Hyun*, John. T. S. Irvine*, Joosun Kim and Jooho Moon",
+    authors: "Daehee Lee#, Jae-ha Myung#, Jeiwan Tan, Sang-Hoon Hyun*, John. T. S. Irvine*, Joosun Kim and Jooho Moon",
     journal: "Journal of Power Sources 345, 30-40",
     doi: "https://doi.org/10.1016/j.jpowsour.2017.02.003"
   },

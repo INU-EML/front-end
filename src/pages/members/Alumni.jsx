@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import { theme, breakpoints } from '../../styles/GlobalStyles';
 import { alumniData } from '../../data/Members/AlumniData';
+import { publicationsData } from '../../data/Publication/publicationsData';
 import AlumniCard from '../../components/members/AlumniCard';
+import MemberPublicationsModal from '../../components/members/MemberPublicationsModal';
+import { getMemberPublications } from '../../utils/memberPublicationMatcher';
 
 // Animation keyframes
 const fadeIn = keyframes`
@@ -133,13 +136,27 @@ const EmptyMessage = styled.p`
 
 
 const Alumni = () => {
+  const [selectedAlumni, setSelectedAlumni] = useState(null);
+  const [alumniPublications, setAlumniPublications] = useState([]);
+
+  const handleAlumniClick = (alumni) => {
+    setSelectedAlumni(alumni);
+    const publications = getMemberPublications(alumni.name, publicationsData);
+    setAlumniPublications(publications);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedAlumni(null);
+    setAlumniPublications([]);
+  };
+
   return (
     <PageContainer>
       {/* Background shapes */}
       <Shape1 />
       <Shape2 />
       <Shape3 />
-      
+
       <PageHeader>
         <Title>Alumni</Title>
         <Description>
@@ -150,12 +167,26 @@ const Alumni = () => {
       <AlumniGrid>
         {alumniData && alumniData.length > 0 ? (
           alumniData.map((alumni, index) => (
-            <AlumniCard key={index} alumni={alumni} index={index} />
+            <AlumniCard
+              key={index}
+              alumni={alumni}
+              index={index}
+              onClick={handleAlumniClick}
+            />
           ))
         ) : (
           <EmptyMessage>No alumni data available at this time.</EmptyMessage>
         )}
       </AlumniGrid>
+
+      {/* Publications Modal */}
+      {selectedAlumni && (
+        <MemberPublicationsModal
+          member={selectedAlumni}
+          publications={alumniPublications}
+          onClose={handleCloseModal}
+        />
+      )}
     </PageContainer>
   );
 };

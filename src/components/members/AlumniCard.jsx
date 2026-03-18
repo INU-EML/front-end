@@ -7,7 +7,7 @@ const fadeIn = keyframes`
   to { opacity: 1; transform: translateY(0); }
 `;
 
-const AlumniCard = ({ alumni, index }) => {
+const AlumniCard = ({ alumni, index, onClick }) => {
   // Extract initials for placeholder
   const getInitials = (name) => {
     return name
@@ -18,13 +18,19 @@ const AlumniCard = ({ alumni, index }) => {
   };
 
   const initials = getInitials(alumni.name);
-  
+
+  const handleClick = () => {
+    if (onClick) {
+      onClick(alumni);
+    }
+  };
+
   return (
-    <CardContainer index={index}>
+    <CardContainer index={index} clickable={!!onClick} onClick={handleClick}>
       <ImageContainer>
         {alumni.image ? (
-          <ProfileImage 
-            src={alumni.image} 
+          <ProfileImage
+            src={alumni.image}
             alt={`${alumni.name} profile`}
             loading="lazy"
             onError={(e) => {
@@ -39,14 +45,14 @@ const AlumniCard = ({ alumni, index }) => {
       </ImageContainer>
       <ContentContainer>
         <Name>{alumni.name}</Name>
-        
+
         <SectionTitle>Current Affiliation</SectionTitle>
         <List>
           {alumni.currentAffiliation.map((affiliation, idx) => (
             <ListItem key={idx} isLast={idx === alumni.currentAffiliation.length - 1}>{affiliation}</ListItem>
           ))}
         </List>
-        
+
         <SectionTitle>Career</SectionTitle>
         <List>
           {alumni.career.map((career, idx) => (
@@ -75,7 +81,8 @@ const CardContainer = styled.div`
     const colors = [theme.primary, theme.secondary, theme.accent, theme.darkBlue];
     return colors[props.index % colors.length];
   }};
-  
+  cursor: ${props => props.clickable ? 'pointer' : 'default'};
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
