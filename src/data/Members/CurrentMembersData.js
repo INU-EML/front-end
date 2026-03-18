@@ -33,7 +33,7 @@ export const currentMembersData = {
       researchFields: ["Flexible Solid Oxide Cells", "Solid Oxide Electrolyte", "Nano catalysts"]
     },
     {
-      name: "Jong Hyeon Kim",
+      name: "Jong-Hyun Kim",
       image: "/images/Memebers/CurrentMemebers/Doctor/Dr_Jong Hyeon Kim.png",
       career: [
         "Ph.D. Course at Incheon National University, 2024~",
