@@ -1,6 +1,30 @@
 // Publications data
 export const publicationsData = [
   {
+    id: 67,
+    year: 2026,
+    title: "Operando Dynamic Self-Assembly of Bifunctional Electrocatalysts for High-Performance Symmetric Molten Carbonate Cells",
+    authors: "Bo-Ram Won, Yeeun Kim, Kab In Kim, So Yeon Park, Jong-Hyun Kim, Hyeongwon Jeong, Hyejin Jeon, Sung-Pil Yoon, Jae-ha Myung*",
+    journal: "Applied Catalysis B: Environmental, 388, 126520 (2026)",
+    doi: "https://doi.org/10.1016/j.apcatb.2026.126520"
+  },
+    {
+    id: 66,
+    year: 2025,
+    title: "Desing of exsolved on-cell catalyst for high-performance direct ammonia solid oxide fuel cells",
+    authors: "Wonjun Jang, Hyeongwon Jeong, Yo Han Kim, and Jae-ha Myung*",
+    journal: "Chemical Engineering Journal, 170247",
+    doi: "https://doi.org/10.1016/j.cej.2025.170247"
+  },
+    {
+    id: 65,
+    year: 2025,
+    title: "Tailoring Oxygen Vacancy Concentration and Triple-Phase Boundaries in Transition Metal-Doped La0.8Sr0.2MnO3-δ Air Electrodes for High-Performance Solid Oxide Cells",
+    authors: "Dayoung Park, Jun-Young Park, Hyeongwon Jeong, Yo Han Kim, and Jae-ha Myung*",
+    journal: "International Journal of Energy Research, 6026869",
+    doi: "https://doi.org/10.1155/er/6026869"
+  },
+  {
     id: 64,
     year: 2025,
     title: "Toward flexible ceramic fuel cells: Switching off brittleness in zirconia-based electrolytes",
