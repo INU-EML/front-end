@@ -71,7 +71,7 @@ export const currentMembersData = {
   ],
   masterCourse: [
     {
-      name: "Ye-eun Kim",
+      name: "Yeeun Kim",
       image: "/images/Memebers/CurrentMemebers/Master/Ms_Ye-eun Kim.png",
       career: [
         "M.S. Course at Incheon National University, 2023~",
