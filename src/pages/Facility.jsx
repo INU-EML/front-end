@@ -109,7 +109,7 @@ const Facility = () => {
         <PageHeader>
           <Title>Facility</Title>
           <Description>
-            Our research laboratory is equipped with state-of-the-art instruments for catalyst synthesis, single cell fabrication, evaluation, and material characterization.
+            Our research laboratory is equipped with instruments for catalyst synthesis, single cell fabrication, evaluation, and material characterization.
           </Description>
         </PageHeader>
 
