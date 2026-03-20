@@ -327,6 +327,12 @@ const Navbar = () => {
           </NavItem>
           
           <NavItem>
+            <NavLink to="/facility" isActive={isActive('/facility')}>
+              Facility
+            </NavLink>
+          </NavItem>
+          
+          <NavItem>
             <NavLink to="/contact" isActive={isActive('/contact')}>
               Contact
             </NavLink>

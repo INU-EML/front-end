@@ -21,6 +21,7 @@ import Publications from './pages/publications/Publications'
 import News from './pages/news/News'
 import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
+import Facility from './pages/Facility'
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/publications" element={<MainLayout><Publications /></MainLayout>} />
         <Route path="/news" element={<MainLayout><News /></MainLayout>} />
         <Route path="/gallery" element={<MainLayout><Gallery /></MainLayout>} />
+        <Route path="/facility" element={<MainLayout><Facility /></MainLayout>} />
         <Route path="/contact" element={<MainLayout><Contact /></MainLayout>} />
       </Routes>
     </Router>
