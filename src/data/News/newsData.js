@@ -1,7 +1,7 @@
 // News data
 export const newsList = [
   {
-    id: 28,
+    id: 29,
     date: "2026.02.02",
     title: "Won's paper has been accepted to  Applied Catalysis B: Environment",
     image: "/images/News/Wons_Operando dynamic self-assembly.png",
@@ -9,10 +9,18 @@ export const newsList = [
     category: "publication"
   },
   {
-    id: 27,
+    id: 28,
     date: "2025.10.27",
     title: "Jang’s paper has been accepted to Chemical Engineering Journal.",
     image: "/images/News/Design of exsolved on-cell catalyst for high-performance direct ammonia solid oxide fuel cells.png",
+    featured: true,
+    category: "publication"
+  },
+  {
+    id: 27,
+    date: "2025.07.09",
+    title: "Myung and Jeong's paper has been accepted to Carbon.",
+    image: "/images/News/Myung and Jeong's paper has been accepted to Carbon.png",
     featured: true,
     category: "publication"
   },

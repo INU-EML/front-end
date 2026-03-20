@@ -1,7 +1,7 @@
 // Publications data
 export const publicationsData = [
   {
-    id: 67,
+    id: 68,
     year: 2026,
     title: "Operando Dynamic Self-Assembly of Bifunctional Electrocatalysts for High-Performance Symmetric Molten Carbonate Cells",
     authors: "Bo-Ram Won, Yeeun Kim, Kab In Kim, So Yeon Park, Jong-Hyun Kim, Hyeongwon Jeong, Hyejin Jeon, Sung-Pil Yoon, Jae-ha Myung*",
@@ -9,12 +9,20 @@ export const publicationsData = [
     doi: "https://doi.org/10.1016/j.apcatb.2026.126520"
   },
     {
-    id: 66,
+    id: 67,
     year: 2025,
     title: "Desing of exsolved on-cell catalyst for high-performance direct ammonia solid oxide fuel cells",
     authors: "Wonjun Jang, Hyeongwon Jeong, Yo Han Kim, and Jae-ha Myung*",
     journal: "Chemical Engineering Journal, 170247",
     doi: "https://doi.org/10.1016/j.cej.2025.170247"
+  },
+    {
+    id: 66,
+    year: 2025,
+    title: "SWCNT/MWCNT binderless hybrid hydrogel: Towards large-scale high-performance EMI shielding coating at commercial level",
+    authors: "Yunseong Ji, Jeong Min Jang, Ju Yeon Kim, Eunji Choi, Hyeongwon Jeong, Choong Hoo Lee, Suhyeon Lee, Yeonji Kwak, Yonghwi Cho, Hwayong Lee, Jae-ha Myung, Byeonggwan Kim, Seon Joon Kim*, Dae Woo Kim*",
+    journal: "Carbon, 238 (2025) 120250",
+    doi: "https://doi.org/10.1016/j.carbon.2025.120250"
   },
     {
     id: 65,
