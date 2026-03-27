@@ -20,6 +20,7 @@ export const normalizeName = (name) => {
   return name
     .toLowerCase()
     .trim()
+    .replace(/#/g, '') // Remove # symbols
     .replace(/\s+/g, ' '); // Replace multiple spaces with single space
 };
 
