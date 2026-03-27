@@ -44,7 +44,7 @@ export const newsList = [
     id: 24,
     date: "2025.02.11",
     title: "Jeong's paper has been accepted to International Journal of Energy Research.",
-    image: "/images/News/Jeong's paper has been accepted to International Journal of Energy Research. .png",
+    image: "/images/News/Jeong’s paper has been accepted to International Journal of Energy Research. .png",
     featured: true,
     category: "publication"
   },
@@ -52,7 +52,7 @@ export const newsList = [
     id: 23,
     date: "2024.08.28",
     title: "Jeon's paper has been accepted to Small.",
-    image: "/images/News/Jeon's paper has been accepted to Small. .png",
+    image: "/images/News/Jeon’s paper has been accepted to Small. .png",
     featured: true,
     category: "publication"
   },
@@ -60,7 +60,7 @@ export const newsList = [
     id: 22,
     date: "2024.08.27",
     title: "Jeong's paper has been accepted to Solid State Ionics.",
-    image: "/images/News/Jeong's paper has been accepted to Solid State Ionics. .png",
+    image: "/images/News/Jeong’s paper has been accepted to Solid State Ionics. .png",
     featured: true,
     category: "publication"
   },
@@ -84,7 +84,7 @@ export const newsList = [
     id: 19,
     date: "2024.04.19",
     title: "Jeong's paper has been accepted to Applied Surface Science.",
-    image: "/images/News/Jeong's paper has been accepted to Applied Surface Science. .png",
+    image: "/images/News/Jeong’s paper has been accepted to Applied Surface Science. .png",
     featured: true,
     category: "publication"
   },
@@ -92,7 +92,7 @@ export const newsList = [
     id: 18,
     date: "2024.04.11",
     title: "Kim's paper has been accepted to Journal of the European Ceramic Society.",
-    image: "/images/News/Kim's paper has been accepted to Journal of the European Ceramic Society. .png",
+    image: "/images/News/Kim’s paper has been accepted to Journal of the European Ceramic Society. .png",
     featured: true,
     category: "publication"
   },
@@ -100,7 +100,7 @@ export const newsList = [
     id: 17,
     date: "2023.11.02",
     title: "Professor Jae-ha Myung was awarded the Fuel Cell Young Researcher Award at the 2023 Fall Meeting & Academic Presentation of the Korean Electrochemical Society. Congratulations!",
-    image: "/images/News/Professor Jae-ha Myung was awarded the Fuel Cell Young Researcher Award at the 2023 Fall Meeting & Academic Presentation of the Korean Electrochemical Society. Congratulations! .jpg",
+    image: "/images/News/Professor Jae-ha Myung was awarded the Fuel Cell .png",
     featured: false,
     category: "award"
   },
@@ -148,7 +148,7 @@ export const newsList = [
     id: 11,
     date: "2023.08.02",
     title: "Park's paper has been accepted to Advanced Materials Technologies.",
-    image: "/images/News/Park's paper has been accepted to Advanced Materials Technologies. .gif",
+    image: "/images/News/Park’s paper has been accepted to Advanced Materials Technologies. .gif",
     featured: true,
     category: "publication"
   },
@@ -156,7 +156,7 @@ export const newsList = [
     id: 10,
     date: "2023.7.31",
     title: "Park's paper has been accepted to Ceramics International.",
-    image: "/images/News/Park's paper has been accepted to Ceramics International. .gif",
+    image: "/images/News/Park’s paper has been accepted to Ceramics International. .gif",
     featured: true,
     category: "publication"
   },
@@ -173,7 +173,7 @@ export const newsList = [
     id: 8,
     date: "2023.3.30",
     title: "Jeong's paper has been accepted to Chemistry of Materials.",
-    image: "/images/News/Jeong's paper has been accepted to Chemistry of Materials. .png",
+    image: "/images/News/Jeong’s paper has been accepted to Chemistry of Materials. .png",
     featured: true,
     category: "publication"
   },
@@ -181,7 +181,7 @@ export const newsList = [
     id: 7,
     date: "2023.1.24",
     title: "Kim's paper has been accepted to Advanced Materials.",
-    image: "/images/News/Kim's paper has been accepted to Advanced Materials. .gif",
+    image: "/images/News/Kim’s paper has been accepted to Advanced Materials. .gif",
     featured: true,
     category: "publication"
   },
@@ -189,7 +189,7 @@ export const newsList = [
     id: 6,
     date: "2022.10.01",
     title: "Jo's paper has been accepted to Applied Energy.",
-    image: "/images/News/Jo's paper has been accepted to Applied Energy. .gif",
+    image: "/images/News/Jo’s paper has been accepted to Applied Energy. .gif",
     featured: true,
     category: "publication"
   },
@@ -197,7 +197,7 @@ export const newsList = [
     id: 5,
     date: "2022.6.14",
     title: "Ram's paper has been accepted to Journal of the European Ceramic Society.",
-    image: "/images/News/Ram's paper has been accepted to Journal of the European Ceramic Society. .gif",
+    image: "/images/News/Ram’s paper has been accepted to Journal of the European Ceramic Society. .gif",
     featured: true,
     category: "publication"
   },
@@ -205,7 +205,7 @@ export const newsList = [
     id: 4,
     date: "2022.3.28",
     title: "Jeong's paper has been accepted in ACS Applied Materials & Interface (Supplementary Cover)",
-    image: "/images/News/Jeong's paper has been accepted in ACS Applied Materials & Interface (Supplementary Cover).jpg",
+    image: "/images/News/Jeong’s paper has been accepted in ACS Applied Materials & Interface (Supplementary Cover).jpg",
     featured: true,
     category: "publication"
   },
@@ -213,7 +213,7 @@ export const newsList = [
     id: 3,
     date: "2022.3.23",
     title: "Kim's paper has been accepted in Chemical Engineering Journal",
-    image: "/images/News/Kim's paper has been accepted in Chemical Engineering Journal .gif",
+    image: "/images/News/Kim’s paper has been accepted in Chemical Engineering Journal .gif",
     featured: true,
     category: "publication"
   },
@@ -221,7 +221,7 @@ export const newsList = [
     id: 2,
     date: "2020.12.10",
     title: "Jo's paper has been accepted in Applied Catalysis B: Environment",
-    image: "/images/News/Jo's paper has been accepted in Applied Catalysis B- Environment .gif",
+    image: "/images/News/Jo’s paper has been accepted in Applied Catalysis B- Environment .gif",
     featured: true,
     category: "publication"
   },
