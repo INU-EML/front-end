@@ -36,7 +36,7 @@ export const newsList = [
     id: 25,
     date: "2025.03.15",
     title: "Won's paper has been accepted to Chemical Engineering Journal.",
-    image: "/images/News/Won's paper has been accepted to Chemical Engineering Journal..png",
+    image: "/images/News/Won’s paper has been accepted to Chemical Engineering Journal.png",
     featured: true,
     category: "publication"
   },
