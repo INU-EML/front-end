@@ -52,7 +52,7 @@ export const currentMembersData = {
     },    
     {
       name: "Jun-Young Park",
-      image: "/images/Memebers/CurrentMemebers/Intern/Intern_Jun-Young Park.jpg",
+      image: "/images/Memebers/CurrentMemebers/Intern/Dr_Jun-Young Park.jpg",
       career: [
         "Ph.D. Course at Incheon National University, 2025~",
         "B.S., Incheon National University, 2025"
@@ -60,7 +60,7 @@ export const currentMembersData = {
       researchFields: ["Solid Oxide Fuel Cells"]
     },
     {
-      name: "Ho Young Seong",
+      name: "HoYeong Sung",
       image: "",
       career: [
         "Ph.D. Course at Incheon National University, 2026~",
