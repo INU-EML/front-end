@@ -52,7 +52,7 @@ export const currentMembersData = {
     },    
     {
       name: "Jun-Young Park",
-      image: "/images/Memebers/CurrentMemebers/Intern/Dr_Jun-Young Park.jpg",
+      image: "/images/Memebers/CurrentMemebers/Doctor/Dr_Jun-Young Park.jpg",
       career: [
         "Ph.D. Course at Incheon National University, 2025~",
         "B.S., Incheon National University, 2025"
