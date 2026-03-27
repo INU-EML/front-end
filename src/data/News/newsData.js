@@ -18,23 +18,23 @@ export const newsList = [
   },
   {
     id: 27,
-    date: "2025.07.09",
-    title: "Myung and Jeong's paper has been accepted to Carbon.",
-    image: "/images/News/Myung and Jeong's paper has been accepted to Carbon.png",
-    featured: true,
-    category: "publication"
-  },
-  {
-    id: 26,
-    date: "2025.07.09",
+    date: "2025.07.30",
     title: "Park’s paper has been accepted to International Journal of Energy Research.",
     image: "/images/News/Parks_Tailoring Oxygen Vacancy.png",
     featured: true,
     category: "publication"
   },
   {
+    id: 26,
+    date: "2025.05.05",
+    title: "Myung and Jeong's paper has been accepted to Carbon.",
+    image: "/images/News/Myung and Jeong's paper has been accepted to Carbon.png",
+    featured: true,
+    category: "publication"
+  },
+  {
     id: 25,
-    date: "2025.03.15",
+    date: "2025.04.15",
     title: "Won's paper has been accepted to Chemical Engineering Journal.",
     image: "/images/News/Won’s paper has been accepted to Chemical Engineering Journal.png",
     featured: true,
