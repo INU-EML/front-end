@@ -59,7 +59,7 @@ export const publicationData = [
     authors: "Hyejin Jeon, Yo Han Kim, Hyeonggeun Kim, Hyeongwon Jeong, Bo-Ram Won, Wonjun Jang, Chan-ho Park, Kang Taek Lee, Jae-ha Myung",
     journal: "Small, 20(52), 2401628 (2024)",
     year: 2024,
-    image: "/images/Home/PublicationItem/publication_Optimizing Reversible Exsolution and Phase Transformation in Double Perovskite Sr2Fe1.5-xCoxMo0.5O6-δ Electrodes for High-Performance Symmetric Solid Oxide Cells.png",
+    image: "/images/Home/PublicationItem/publication_Optimizing Reversible Exsolutino and Phase.png",
     doi: "https://doi.org/10.1002/smll.202401628"
   },
   {
