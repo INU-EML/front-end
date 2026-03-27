@@ -61,8 +61,13 @@ export const professorData = {
       "Emerging Exsolution Materials for Diverse Energy Applications: Design, Mechanism, and Future Prospects, CHEMISTRY OF MATERIALS, 제35권(집), 제10호, PP.3745~3764, 2023.03.30",
     ],
     byYear: {
+      "2026": [
+        "Operando dynamic self-assembly of single-atom catalysts on a nanoparticle surface, APPLIED CATALYSIS B: ENVIRONMENT, 제325권(집), 2026.02.02"
+      ],
       "2025": [
+        "Desing of exsolved on-cell catalyst for high-performance direct ammonia solid oxide fuel cells , CHEMICAL ENGINEERING JOURNAL, 제510권(집), 2025.10.27",
         "SWCNT/MWCNT binderless hybrid hydrogel: Towards large-scale high-performance EMI shielding coating at commercial level, CARBON, 제238권(집), 2025.05.05",
+        "Tailoring Oxygen Vacancy Concentration and Triple-Phase Boundaries in Transition Metal-Doped La0.8Sr0.2MnO3-δ Air Electrodes for High-Performance Solid Oxide Cells, INTERNATIONAL JOURNAL OF ENERGY RESEARCH, 제2025권(집), 제1호, 2025.07.30",
         "Toward flexible ceramic fuel cells: Switching off brittleness in zirconia-based electrolytes, Chemical Engineering Journal, 제510권(집), 2025.04.15",
         "Development of Li-Coated NiO Catalyst for Enhanced Alkaline Oxygen Evolution Reaction, INTERNATIONAL JOURNAL OF ENERGY RESEARCH, 제2025권(집), 제1호, 2025.02.11"
       ],
