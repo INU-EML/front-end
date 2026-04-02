@@ -6,7 +6,7 @@ export const facilityData = [
       {
         id: 'synthesis-1',
         name: 'Tape caster',
-        image: '/images/Facility/Tape caster.png',
+        image: '/images/Facility/Tape caster.jpg',
       },
       {
         id: 'synthesis-2',
@@ -62,12 +62,12 @@ export const facilityData = [
       {
         id: 'eval-2',
         name: 'Large cell station',
-        image: '/images/Facility/Large cell station.png',
+        image: '/images/Facility/Large cell station.jpg',
       },
       {
         id: 'eval-3',
-        name: 'Potentsiotat',
-        image: '/images/Facility/Potentiostat.png',
+        name: 'Potentiostat',
+        image: '/images/Facility/Potentiostat.jpg',
       },
       {
         id: 'eval-4',
@@ -98,7 +98,7 @@ export const facilityData = [
       {
         id: 'char-1',
         name: 'X-ray Diffraction (XRD)',
-        image: '/images/Facility/XRD.png',
+        image: '/images/Facility/XRD.jpg',
       },
       {
         id: 'char-2',
@@ -110,15 +110,14 @@ export const facilityData = [
         name: 'Transmission Electron Microscopy (TEM)',
         image: '/images/Facility/TEM.jpg',
       },
-
-      {
-        id: 'char-4',
-        name: 'Fourier transform infrared spectroscopy (FTIR)',
-        image: '/images/Facility/FTIR.jpg',
-      },
+      // {
+      //   id: 'char-4',
+      //   name: 'Fourier Transform Infrared spectroscopy (FTIR)',
+      //   image: '/images/Facility/FTIR.jpg',
+      // },
       {
         id: 'char-5',
-        name: 'Raman spectroscopy',
+        name: 'Raman Spectroscopy',
         image: '/images/Facility/Raman.jpg',
       },
     ],
