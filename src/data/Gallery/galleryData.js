@@ -362,7 +362,32 @@ const galleryData = [
   {
     year: 2025,
     title: "Graduation 2025",
+    image: "/images/Gallery/2025/Graduation 2025_5.jpg"
+  },
+  {
+    year: 2025,
+    title: "Graduation 2025",
+    image: "/images/Gallery/2025/Graduation 2025_6.jpg"
+  },
+  {
+    year: 2025,
+    title: "Graduation 2025",
     image: "/images/Gallery/2025/Graduation 2025.jpg"
+  },
+  {
+    year: 2025,
+    title: "2025 The Korean Ceramic Society in Seoul",
+    image: "/images/Gallery/2025/2025 The Korean Ceramic Society in Seoul.jpg"
+  },
+  //   {
+  //   year: 2025,
+  //   title: "Graduation 2025",
+  //   image: "/images/Gallery/2025/Graduation 2025.jpg"
+  // },
+  {
+    year: 2026,
+    title: "Graduation 2026",
+    image: "/images/Gallery/2026/Graduation 2026_1.jpg"
   },
 ];
 export default galleryData;
