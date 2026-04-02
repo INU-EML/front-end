@@ -99,7 +99,13 @@ const PublicationItem = ({ publication }) => {
       rel="noopener noreferrer"
     >
       <PublicationImageContainer year={publication.year}>
-        <PublicationImg src={publication.image} alt={publication.title} />
+        <PublicationImg 
+          src={publication.image} 
+          alt={publication.title}
+          loading="lazy"
+          width={320}
+          height={420}
+        />
       </PublicationImageContainer>
       <PublicationContent>
         <PublicationTitle>{publication.title}</PublicationTitle>

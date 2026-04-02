@@ -182,7 +182,12 @@ const ProfessorProfile = () => {
     <ProfileContainer>
       <ProfileContent>
         <ImageContainer>
-          <ProfileImage src={professorData.image} alt={professorData.name} />
+          <ProfileImage 
+            src={professorData.image} 
+            alt={professorData.name}
+            width={300}
+            height={300}
+          />
         </ImageContainer>
         
         <InfoContainer>

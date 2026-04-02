@@ -98,7 +98,13 @@ const ResearchItem = ({ research, isActive }) => {
       className={isActive ? 'active' : ''}
     >
       <ResearchImageContainer>
-        <ResearchImage src={research.image} alt={research.title} />
+        <ResearchImage 
+          src={research.image} 
+          alt={research.title}
+          loading="lazy"
+          width={360}
+          height={360}
+        />
       </ResearchImageContainer>
       <ResearchContent>
         <ResearchTitle>{research.title}</ResearchTitle>

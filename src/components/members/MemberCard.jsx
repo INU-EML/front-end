@@ -205,6 +205,8 @@ const MemberCard = ({ member, index, onClick }) => {
             src={member.image}
             alt={member.name}
             loading="lazy"
+            width={300}
+            height={300}
             onError={(e) => {
               e.target.style.display = 'none';
               e.target.nextSibling.style.display = 'flex';

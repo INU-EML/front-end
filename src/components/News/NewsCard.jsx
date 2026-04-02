@@ -253,6 +253,9 @@ const NewsCard = ({ news, index }) => {
                 src={news.image} 
                 alt={news.title} 
                 variant={variant}
+                loading="lazy"
+                width={600}
+                height={400}
                 onError={(e) => {
                   e.target.onerror = null;
                   // Use a simple data URL instead of a file path
@@ -280,6 +283,9 @@ const NewsCard = ({ news, index }) => {
                 src={news.image} 
                 alt={news.title}
                 variant={variant}
+                loading="lazy"
+                width={600}
+                height={400}
                 onError={(e) => {
                   e.target.onerror = null;
                   // Use a simple data URL instead of a file path
@@ -307,6 +313,9 @@ const NewsCard = ({ news, index }) => {
                 src={news.image} 
                 alt={news.title}
                 variant={variant}
+                loading="lazy"
+                width={600}
+                height={400}
                 onError={(e) => {
                   e.target.onerror = null;
                   // Use a simple data URL instead of a file path
@@ -335,6 +344,9 @@ const NewsCard = ({ news, index }) => {
                 src={news.image} 
                 alt={news.title}
                 variant={variant}
+                loading="lazy"
+                width={600}
+                height={400}
                 onError={(e) => {
                   e.target.onerror = null;
                   // Use a simple data URL instead of a file path

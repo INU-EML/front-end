@@ -110,7 +110,13 @@ const PhotoCard = ({ photo, index }) => {
       <PolaroidFrame>
         <Tape />
         <ImageWrapper>
-          <Image src={photo.image} alt={photo.title} />
+          <Image 
+            src={photo.image} 
+            alt={photo.title}
+            loading="lazy"
+            width={280}
+            height={210}
+          />
         </ImageWrapper>
         <CardTitle>{photo.title}</CardTitle>
         <CardYear>{photo.year}</CardYear>
