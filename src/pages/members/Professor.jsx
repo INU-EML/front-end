@@ -74,42 +74,155 @@ const Position = styled.h2`
   font-weight: 500;
 `;
 
-const ContactInfo = styled.div`
+const ContactButtonContainer = styled.div`
   margin-bottom: 2rem;
-  background: linear-gradient(135deg, ${theme.white} 0%, #f5f9ff 100%);
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  border-left: 4px solid ${theme.secondary};
 `;
 
-const ContactItem = styled.p`
-  margin-bottom: 0.75rem;
+const ContactButton = styled.button`
+  background: linear-gradient(135deg, ${theme.primary} 0%, ${theme.secondary} 100%);
+  color: ${theme.white};
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+`;
+
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
   
-  &:last-child {
-    margin-bottom: 0;
-  }
-  
-  &:nth-child(odd) strong {
-    color: ${theme.primary};
-    min-width: 60px;
-  }
-  
-  &:nth-child(even) strong {
-    color: ${theme.secondary};
-    min-width: 60px;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 `;
 
-const ContactLink = styled.a`
-  color: ${theme.text};
+const ModalContent = styled.div`
+  background: ${theme.white};
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  animation: slideIn 0.3s ease-out;
+  position: relative;
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+`;
+
+const ModalHeader = styled.h2`
+  font-size: 1.8rem;
+  color: ${theme.primary};
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const CloseButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: ${theme.textLight};
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: color 0.2s ease;
   
   &:hover {
-    color: ${theme.secondary};
+    color: ${theme.text};
+  }
+`;
+
+const ContactInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`;
+
+const ContactItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f5f9ff;
+  border-radius: 8px;
+  border-left: 4px solid ${theme.secondary};
+`;
+
+const ContactLabel = styled.strong`
+  color: ${theme.primary};
+  font-weight: 600;
+  min-width: 70px;
+  white-space: nowrap;
+`;
+
+const ContactLabel2 = styled.strong`
+  color: ${theme.primary};
+  font-weight: 600;
+  min-width: 70px;
+  white-space: nowrap;
+`;
+
+const ContactValue = styled.p`
+  margin: 0;
+  color: ${theme.text};
+  word-break: break-all;
+`;
+
+const ContactLink = styled.a`
+  color: ${theme.secondary};
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: ${theme.primary};
+    text-decoration: underline;
   }
 `;
 
@@ -183,6 +296,10 @@ const TabsContainer = styled.div`
 
 const Professor = () => {
   const { profile, position, education, career, publications, researchInterests } = professorData;
+  const [showContactModal, setShowContactModal] = useState(false);
+  
+  const openContactModal = () => setShowContactModal(true);
+  const closeContactModal = () => setShowContactModal(false);
   
   return (
     <PageContainer>
@@ -195,20 +312,43 @@ const Professor = () => {
           <Name>{profile.name}</Name>
           <Position>{position.position}</Position>
           
-          <ContactInfo>
-            <ContactItem>
-              <strong>Tel:</strong> {profile.contact.tel}
-            </ContactItem>
-            <ContactItem>
-              <strong>Email:</strong> 
-              <ContactLink href={`mailto:${profile.contact.email}`}>
-                {profile.contact.email}
-              </ContactLink>
-            </ContactItem>
-            <ContactItem>
-              <strong>Office:</strong> {profile.contact.office}
-            </ContactItem>
-          </ContactInfo>
+          <ContactButtonContainer>
+            <ContactButton onClick={openContactModal}>
+              📧 Contact Information
+            </ContactButton>
+          </ContactButtonContainer>
+          
+          {showContactModal && (
+            <ModalOverlay onClick={closeContactModal}>
+              <ModalContent onClick={(e) => e.stopPropagation()}>
+                <ModalHeader>
+                  <span>Contact Information</span>
+                  <CloseButton onClick={closeContactModal}>✕</CloseButton>
+                </ModalHeader>
+                
+                <ContactInfo>
+                  <ContactItem>
+                    <ContactLabel>Tel:</ContactLabel>
+                    <ContactValue>{profile.contact.tel}</ContactValue>
+                  </ContactItem>
+                  
+                  <ContactItem>
+                    <ContactLabel2>Email:</ContactLabel2>
+                    <ContactValue>
+                      <ContactLink href={`mailto:${profile.contact.email}`}>
+                        {profile.contact.email}
+                      </ContactLink>
+                    </ContactValue>
+                  </ContactItem>
+                  
+                  <ContactItem>
+                    <ContactLabel>Office:</ContactLabel>
+                    <ContactValue>{profile.contact.office}</ContactValue>
+                  </ContactItem>
+                </ContactInfo>
+              </ModalContent>
+            </ModalOverlay>
+          )}
           
           <CollapsibleSection title="Research Interests" defaultOpen={true}>
             <ResearchInterests>
