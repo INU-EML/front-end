@@ -387,7 +387,7 @@ const galleryData = [
   {
     year: 2026,
     title: "Graduation 2026",
-    image: "/images/Gallery/2026/Graduation 2026_1.jpg"
+    image: "/images/Gallery/2026/Graduation 2026_1.png"
   },
 ];
 export default galleryData;
