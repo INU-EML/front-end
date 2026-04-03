@@ -65,10 +65,9 @@ const inFlightRequests = new Map();
 
 /**
  * Fetch citation count from OpenAlex API using DOI
- *
- * Uses two-level caching:
- * 1. Result cache: stores resolved values
- * 2. Request cache: tracks in-flight requests to prevent duplicate network calls
+ * 
+ * NOTE: Now calls Vercel serverless function instead of direct API
+ * This keeps the API key secure on the server side.
  *
  * @param {string} doi - The DOI to fetch citations for
  * @returns {Promise<number|null>} - Citation count or null on failure
@@ -80,7 +79,6 @@ const fetchCitationCount = async (doi) => {
 
   const normalizedDoi = normalizeDoi(doi);
   if (!normalizedDoi) {
-    // Log invalid DOI for debugging, but don't throw
     console.debug(`Invalid DOI format: ${doi}`);
     return null;
   }
@@ -95,46 +93,33 @@ const fetchCitationCount = async (doi) => {
     return inFlightRequests.get(normalizedDoi);
   }
 
-  // Validate API key
-  const apiKey = import.meta.env.VITE_OPENALEX_API_KEY;
-  if (!apiKey) {
-    console.warn('VITE_OPENALEX_API_KEY environment variable not set');
-    return null;
-  }
-
-  // Create the API request promise
+  // Create the API request promise calling our Vercel serverless function
   const requestPromise = (async () => {
     try {
-      // Only use DOI-based single work lookup endpoint
-      // Format: https://api.openalex.org/works/doi:{normalizedDOI}
-      const url = `https://api.openalex.org/works/doi:${normalizedDoi}?api_key=${apiKey}`;
-
-      const response = await fetch(url);
+      // Call our Vercel serverless function (server-side)
+      // The API key is kept secure on the server, never exposed to browser
+      const response = await fetch('/api/citations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ dois: [normalizedDoi] })
+      });
 
       if (!response.ok) {
-        // Don't retry or fallback - just return null
-        if (response.status === 404) {
-          console.debug(`DOI not found in OpenAlex: ${normalizedDoi}`);
-        } else {
-          console.warn(`OpenAlex API error (${response.status}) for DOI: ${normalizedDoi}`);
-        }
+        console.warn(`API error (${response.status})`);
         return null;
       }
 
       const data = await response.json();
 
-      // Extract cited_by_count from response
-      // This is guaranteed to be a number >= 0
-      if (data && typeof data.cited_by_count === 'number') {
-        const citationCount = data.cited_by_count;
-
-        // Store in result cache before returning
+      // Extract citation count from response
+      if (data && typeof data[normalizedDoi] === 'number') {
+        const citationCount = data[normalizedDoi];
         citationCache.set(normalizedDoi, citationCount);
-
         return citationCount;
       }
 
-      // No citation data available
       return null;
     } catch (error) {
       console.error(`Error fetching citation count for DOI ${normalizedDoi}:`, error);
@@ -153,7 +138,8 @@ const fetchCitationCount = async (doi) => {
 
 /**
  * Batch fetch citations for multiple DOIs
- * Useful for loading pages with multiple publications
+ * Efficient implementation: sends all DOIs to Vercel function in one batch
+ * Reduces network calls and improves performance
  *
  * @param {string[]} dois - Array of DOIs to fetch
  * @returns {Promise<Object>} - Map of DOI -> citation count
@@ -161,26 +147,48 @@ const fetchCitationCount = async (doi) => {
 const fetchCitationsForMultiple = async (dois) => {
   const results = {};
 
-  // Use Promise.allSettled to handle both success and failure cases
-  const promises = dois.map(doi =>
-    fetchCitationCount(doi).then(count => ({
-      doi: normalizeDoi(doi) || doi,
-      count
-    }))
-  );
+  if (!dois || dois.length === 0) {
+    return results;
+  }
 
-  const settled = await Promise.allSettled(promises);
+  try {
+    // Normalize all DOIs first
+    const normalizedDois = dois
+      .map(doi => normalizeDoi(doi))
+      .filter(doi => doi !== null);
 
-  settled.forEach((result, index) => {
-    if (result.status === 'fulfilled') {
-      results[result.value.doi] = result.value.count;
-    } else {
-      // This shouldn't happen with our error handling, but just in case
-      results[dois[index]] = null;
+    if (normalizedDois.length === 0) {
+      return results;
     }
-  });
 
-  return results;
+    // Call Vercel serverless function with batch of DOIs
+    // This is much more efficient than individual calls
+    const response = await fetch('/api/citations', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ dois: normalizedDois })
+    });
+
+    if (!response.ok) {
+      console.error(`Batch API error (${response.status})`);
+      return results;
+    }
+
+    const data = await response.json();
+
+    // Parse response and cache results
+    Object.entries(data).forEach(([doi, count]) => {
+      citationCache.set(doi, count);
+      results[doi] = count;
+    });
+
+    return results;
+  } catch (error) {
+    console.error('Error fetching citations batch:', error);
+    return results;
+  }
 };
 
 /**
