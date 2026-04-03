@@ -46,13 +46,10 @@ export default defineConfig({
   server: {
     // Development server proxy for /api routes
     // Routes /api requests to serverless function handlers during dev
-    middlewareMode: false,
     proxy: {
       '/api': {
         target: 'http://localhost:3001',
-        changeOrigin: true,
-        // Fallback: if local api server not available, it will error
-        // For development, run: vercel dev
+        changeOrigin: true
       }
     }
   }
