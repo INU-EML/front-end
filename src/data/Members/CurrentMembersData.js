@@ -60,7 +60,7 @@ export const currentMembersData = {
       researchFields: ["Solid Oxide Fuel Cells"]
     },
     {
-      name: "HoYeong Sung",
+      name: "Hoyeong Sung",
       image: "",
       career: [
         "Ph.D. Course at Incheon National University, 2026~",
