@@ -1,6 +1,15 @@
 // Publications data
 export const publicationsData = [
   {
+    id: 69,
+    year: 2026,
+    title: "Lattice Distortion-Driven Metal Exsolution in Perovskite Oxides",
+    authors:
+      "Yo Han Kim, Uchan Jeon, Hyeongwon Jeong, Bo-Ram Won, Jeong Woo Han* and Jae-ha Myung*",
+    journal: "Applied Catalysis B: Environmental, 388, 126520 (2026)",
+    doi: "https://doi.org/10.1016/j.apcatb.2026.126520",
+  },
+  {
     id: 68,
     year: 2026,
     title:
