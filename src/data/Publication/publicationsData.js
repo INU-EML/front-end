@@ -7,7 +7,7 @@ export const publicationsData = [
     authors:
       "Yo Han Kim#, Uchan Jeon#, Hyeongwon Jeong, Bo-Ram Won, Jeong Woo Han* and Jae-ha Myung*",
     journal: "Advanced Science, 2026",
-    doi: "https://doi.org/10.1016/j.apcatb.2026.126520",
+    doi: "https://doi.org/10.1002/advs.75870",
   },
   {
     id: 68,
@@ -45,7 +45,7 @@ export const publicationsData = [
     title:
       "Tailoring Oxygen Vacancy Concentration and Triple-Phase Boundaries in Transition Metal-Doped La0.8Sr0.2MnO3-δ Air Electrodes for High-Performance Solid Oxide Cells",
     authors:
-      "Dayoung Park, Jun-Young Park, Hyeongwon Jeong, Yo Han Kim, and Jae-ha Myung*",
+      "Dayoung Park#, Jun-Young Park#, Hyeongwon Jeong, Yo Han Kim, and Jae-ha Myung*",
     journal: "International Journal of Energy Research, 6026869",
     doi: "https://doi.org/10.1155/er/6026869",
   },
@@ -74,7 +74,7 @@ export const publicationsData = [
     title:
       "Optimizing Reversible Exsolution and Phase Transformation in Double Perovskite Sr2Fe1.5-xCoxMo0.5O6-δ Electrodes for High-Performance Symmetric Solid Oxide Cells",
     authors:
-      "Hyejin Jeon, Yo Han Kim, Hyeonggeun Kim, Hyeongwon Jeong, Bo-Ram Won, Wonjun Jang, Chan-ho Park, Kang Taek Lee* and Jae-ha Myung",
+      "Hyejin Jeon#, Yo Han Kim#, Hyeonggeun Kim#, Hyeongwon Jeong, Bo-Ram Won, Wonjun Jang, Chan-ho Park, Kang Taek Lee* and Jae-ha Myung",
     journal: "small 20 (52), 2401628, Inside Back Cover",
     doi: "https://doi.org/10.1002/smll.202401628",
   },
