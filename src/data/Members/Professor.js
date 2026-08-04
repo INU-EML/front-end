@@ -62,6 +62,7 @@ export const professorData = {
     ],
     byYear: {
       2026: [
+        "Microstructural engineering of anode functional layers for optimized electrode–electrolyte interfaces in protonic ceramic fuel cells, Chemical Engineering Journal, 2026",
         "Operando dynamic self-assembly of single-atom catalysts on a nanoparticle surface, Applied Catalysis B: Environment, vol. 325, 2026",
         "Lattice Distortion-Driven Metal Exsolution in Perovskite Oxides, Advanced Science, 2026",
       ],

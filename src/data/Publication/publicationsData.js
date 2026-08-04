@@ -1,6 +1,16 @@
 // Publications data
 export const publicationsData = [
   {
+    id: 70,
+    year: 2026,
+    title:
+      "Microstructural engineering of anode functional layers for optimized electrode–electrolyte interfaces in protonic ceramic fuel cells",
+    authors:
+      "Yo Han Kim#, Hoyeong Sung#, Hyeongwon Jeong, Jong-Hyun Kim, Wonjun Jang, Jun-Young Park, Sihyuk Choi*, Jae-ha Myung*",
+    journal: "Chemical Engineering Journal, 2026",
+    doi: "https://doi.org/10.1016/j.cej.2026.179781",
+  },
+  {
     id: 69,
     year: 2026,
     title: "Lattice Distortion-Driven Metal Exsolution in Perovskite Oxides",
