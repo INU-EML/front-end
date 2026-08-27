@@ -1,6 +1,16 @@
 // News data
 export const newsList = [
   {
+    id: 31,
+    date: "2026.07.21",
+    title:
+      "Kim and Sung's paper has been accepted to Chemical Engineering Journal.",
+    image:
+      "/images/News/Kim and Sung's paper has been accepted to Chemical Engineering Journal.png",
+    featured: true,
+    category: "publication",
+  },
+  {
     id: 30,
     date: "2026.06.01",
     title: "Kim's paper has been accepted to Advanced Science.",
