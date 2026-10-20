@@ -62,7 +62,8 @@ export const professorData = {
     ],
     byYear: {
       2026: [
-        "Microstructural engineering of anode functional layers for optimized electrode–electrolyte interfaces in protonic ceramic fuel cells, Chemical Engineering Journal, 2026",
+        "Advances in sputtering-based thin-film engineering for low-temperature solid oxide fuel cells, Renewable and Sustainable Energy Reviews, vol. 244, 2027",
+        "Microstructural engineering of anode functional layers for optimized electrode–electrolyte interfaces in protonic ceramic fuel cells, Chemical Engineering Journal, vol. 547, 2026",
         "Operando dynamic self-assembly of single-atom catalysts on a nanoparticle surface, Applied Catalysis B: Environment, vol. 325, 2026",
         "Lattice Distortion-Driven Metal Exsolution in Perovskite Oxides, Advanced Science, 2026",
       ],

@@ -1,6 +1,16 @@
 // News data
 export const newsList = [
   {
+    id: 32,
+    date: "2026.09.05",
+    title:
+      "Lee's papr has been accepted to Renewable and Sustainable Energy Reviews.",
+    image:
+      "/images/News/Lee's papr has been accepted to Renewable and Sustainable Energy Reviews.png",
+    featured: true,
+    category: "publication",
+  },
+  {
     id: 31,
     date: "2026.07.21",
     title:

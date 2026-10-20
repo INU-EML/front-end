@@ -1,6 +1,15 @@
 // Publications data
 export const publicationsData = [
   {
+    id: 71,
+    year: 2026,
+    title:
+      "Advances in sputtering-based thin-film engineering for low-temperature solid oxide fuel cells",
+    authors: "Somi Lee, Yo Han Kim, Bo-Ram Won, Jae-ha Myung*",
+    journal: "Renewable and Sustainable Energy Reviews, 2027",
+    doi: "https://doi.org/10.1016/j.rser.2026.117493",
+  },
+  {
     id: 70,
     year: 2026,
     title:
