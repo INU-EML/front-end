@@ -1,6 +1,26 @@
 // News data
 export const newsList = [
   {
+    id: 34,
+    date: "2026.10.29",
+    title:
+      "Hoyeong Sung was awarded the Best Oral Presentation Award at the 2026 Fall Meeting of the Korean Ceramic Society. Congratulations!",
+    image:
+      "/images/News/Hoyeong Sung was awarded the Best Oral Presentation Award at the 2026 Fall Meeting of the Korean Ceramic Society. Congratulations!.png",
+    featured: false,
+    category: "award",
+  },
+  {
+    id: 33,
+    date: "2026.10.29",
+    title:
+      "Jong-Hyun Kim was awarded the Best Poster Award at the 2026 Fall Meeting of the Korean Ceramic Society. Congratulations!",
+    image:
+      "/images/News/Jong-Hyun Kim was awarded the Best Poster Award at the 2026 Fall Meeting of the Korean Ceramic Society. Congratulations!.png",
+    featured: false,
+    category: "award",
+  },
+  {
     id: 32,
     date: "2026.09.05",
     title:
@@ -151,9 +171,9 @@ export const newsList = [
     id: 16,
     date: "2023.10.20",
     title:
-      "Bo-Ram Won was awarded the Best Oral Presentation Award at the 2023 Fall Meeting of the Korean Ceramic Society. Congratulations!",
+      "Hyejin Jeon was awarded the Best Poster Award at the 2023 Fall Meeting of the Korean Ceramic Society. Congratulations!",
     image:
-      "/images/News/Bo-Ram Won was awarded the Best Oral Presentation Award at the 2023 Fall Meeting of the Korean Ceramic Society. Congratulations! .jpg",
+      "/images/News/Hyejin Jeon was awarded the Best Poster Award at the 2023 Fall Meeting of the Korean Ceramic Society. Congratulations! .png",
     featured: false,
     category: "award",
   },
@@ -161,10 +181,10 @@ export const newsList = [
     id: 15,
     date: "2023.10.20",
     title:
-      "Hyejin Jeon was awarded the Best Poster Award at the 2023 Fall Meeting of the Korean Ceramic Society. Congratulations!",
+      "Bo-Ram Won was awarded the Best Oral Presentation Award at the 2023 Fall Meeting of the Korean Ceramic Society. Congratulations!",
     image:
-      "/images/News/Hyejin Jeon was awarded the Best Poster Award at the 2023 Fall Meeting of the Korean Ceramic Society. Congratulations! .png",
-    featured: false,
+      "/images/News/Bo-Ram Won was awarded the Best Oral Presentation Award at the 2023 Fall Meeting of the Korean Ceramic Society. Congratulations! .jpg",
+    featured: true,
     category: "award",
   },
   {
@@ -222,7 +242,7 @@ export const newsList = [
     image:
       "/images/News/Professor Jae-ha Myung was awarded the Academic Progress Award from the Korean Ceramic Society in the 2023 Spring Symposium. .jpg",
     //"/images/News/Professor Jae-ha Myung was awarded the Academic Progress Award from the Korean Ceramic Society in the 2023 Spring Symposium. _2.jpg"
-    featured: false,
+    featured: true,
     category: "award",
   },
   {
