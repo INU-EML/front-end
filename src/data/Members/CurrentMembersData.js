@@ -15,13 +15,11 @@ export const currentMembersData = {
         "Dry Reforming of Methane",
       ],
     },
-  ],
-  doctoralCourse: [
     {
       name: "Hyeongwon Jeong",
       image: "/images/Memebers/CurrentMemebers/Doctor/Dr_Hyeongwon Jeong.jpg",
       career: [
-        "Ph.D. Course at Incheon National University, 2021~",
+        "Ph.D. Course at Incheon National University, 2026",
         "B.S., Incheon National University, 2021",
       ],
       researchFields: [
@@ -35,7 +33,7 @@ export const currentMembersData = {
       name: "Bo-Ram Won",
       image: "/images/Memebers/CurrentMemebers/Doctor/Dr_Bo-Ram Won.png",
       career: [
-        "Ph.D. Course at Incheon National University, 2023~",
+        "Ph.D. Course at Incheon National University, 2026",
         "M.S., Incheon National University, 2023",
         "B.S., Incheon National University, 2021",
       ],
@@ -45,6 +43,8 @@ export const currentMembersData = {
         "Nano catalysts",
       ],
     },
+  ],
+  doctoralCourse: [
     {
       name: "Jong-Hyun Kim",
       image: "/images/Memebers/CurrentMemebers/Doctor/Dr_Jong Hyeon Kim.png",
