@@ -2,10 +2,9 @@ import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { researchData } from '../data/Home/researchData';
-import { publicationData } from '../data/Home/publicationData';
 import { theme, breakpoints } from '../styles/GlobalStyles';
 import ResearchItem from '../components/Home/ResearchItem';
-import PublicationItem from '../components/Home/PublicationItem';
+import PublicationsSection from '../components/Home/PublicationsSection';
 import ProfessorProfile from '../components/Home/ProfessorProfile';
 
 // Hero Section
@@ -296,77 +295,6 @@ const SliderDot = styled.button`
   }
 `;
 
-// Publications Section
-const PublicationsSection = styled.section`
-  padding: 6rem 0;
-  background-color: ${theme.white};
-`;
-
-const PublicationsContainer = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  position: relative;
-`;
-
-const PublicationsHeader = styled.div`
-  margin-bottom: 3rem;
-  text-align: center;
-`;
-
-const PublicationsTitle = styled.h2`
-  font-size: 2.5rem;
-  color: ${theme.dark};
-  margin-bottom: 1rem;
-`;
-
-const PublicationsDescription = styled.p`
-  color: ${theme.textLight || '#666'};
-  max-width: 700px;
-  margin: 0 auto;
-`;
-
-const PublicationsScroll = styled.div`
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  padding: 1rem 0;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-  scroll-behavior: smooth;
-  
-  &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
-  
-  /* CSS Scroll Snap */
-  scroll-snap-type: x mandatory;
-  scroll-padding: 1rem;
-`;
-
-const PublicationsDots = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
-`;
-
-const PublicationDot = styled.button`
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: ${props => props.active ? theme.accent : '#ccc'};
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background: ${props => props.active ? theme.accent : theme.secondary};
-  }
-`;
-
 const NavigationButton = styled.button`
   width: 40px;
   height: 40px;
@@ -416,13 +344,9 @@ const NavigationButton = styled.button`
 const Home = () => {
   // Research slider functionality
   const sliderRef = useRef(null);
-  const publicationsRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [activePublicationIndex, setActivePublicationIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [isPublicationsHovered, setIsPublicationsHovered] = useState(false);
   const [autoScrollEnabled, setAutoScrollEnabled] = useState(true);
-  const [autoPublicationsScrollEnabled, setAutoPublicationsScrollEnabled] = useState(true);
   const [expanded, setExpanded] = useState(false);
   
   // Handle scroll events to update active index for Research slider
@@ -451,32 +375,6 @@ const Home = () => {
     };
   }, [activeIndex]);
   
-  // Handle scroll events to update active index for Publications slider
-  useEffect(() => {
-    const handlePublicationsScroll = () => {
-      if (publicationsRef.current) {
-        const scrollLeft = publicationsRef.current.scrollLeft;
-        const cardWidth = 320 + 24; // card width + gap
-        const newIndex = Math.round(scrollLeft / cardWidth);
-        
-        if (newIndex !== activePublicationIndex && newIndex >= 0 && newIndex < publicationData.length) {
-          setActivePublicationIndex(newIndex);
-        }
-      }
-    };
-    
-    const slider = publicationsRef.current;
-    if (slider) {
-      slider.addEventListener('scroll', handlePublicationsScroll);
-    }
-    
-    return () => {
-      if (slider) {
-        slider.removeEventListener('scroll', handlePublicationsScroll);
-      }
-    };
-  }, [activePublicationIndex]);
-  
   // Auto-scroll functionality for Research slider
   useEffect(() => {
     let interval;
@@ -503,33 +401,6 @@ const Home = () => {
       if (interval) clearInterval(interval);
     };
   }, [autoScrollEnabled, isHovered, researchData.length]);
-  
-  // Auto-scroll functionality for Publications slider
-  useEffect(() => {
-    let interval;
-    
-    if (autoPublicationsScrollEnabled && !isPublicationsHovered) {
-      interval = setInterval(() => {
-        if (publicationsRef.current) {
-          const maxScrollLeft = publicationsRef.current.scrollWidth - publicationsRef.current.clientWidth;
-          const nextScrollLeft = publicationsRef.current.scrollLeft + (320 + 24); // card width + gap
-          
-          if (nextScrollLeft > maxScrollLeft) {
-            // Reset to beginning when reaching the end
-            publicationsRef.current.scrollLeft = 0;
-            setActivePublicationIndex(0);
-          } else {
-            publicationsRef.current.scrollLeft = nextScrollLeft;
-            setActivePublicationIndex(prev => (prev + 1) % publicationData.length);
-          }
-        }
-      }, 5000); // Auto-scroll every 5 seconds
-    }
-    
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, [autoPublicationsScrollEnabled, isPublicationsHovered, publicationData.length]);
   
   // Handle dot click for Research navigation
   const handleDotClick = (index) => {
@@ -567,44 +438,6 @@ const Home = () => {
       setActiveIndex(newIndex);
     }
     setAutoScrollEnabled(false); // Disable auto-scroll when manually navigating
-  };
-  
-  // Handle dot click for Publications navigation
-  const handlePublicationDotClick = (index) => {
-    if (publicationsRef.current) {
-      const cardWidth = 320 + 24; // card width + gap
-      const scrollLeft = index * cardWidth;
-      
-      publicationsRef.current.scrollTo({
-        left: scrollLeft,
-        behavior: 'smooth'
-      });
-      setActivePublicationIndex(index);
-    }
-    setAutoPublicationsScrollEnabled(false); // Disable auto-scroll when manually navigating
-  };
-  
-  // Handle navigation button clicks for Publications
-  const handlePublicationNavigation = (direction) => {
-    if (publicationsRef.current) {
-      const cardWidth = 320 + 24; // card width + gap
-      let newIndex;
-      
-      if (direction === 'prev') {
-        newIndex = Math.max(0, activePublicationIndex - 1);
-      } else {
-        newIndex = Math.min(publicationData.length - 1, activePublicationIndex + 1);
-      }
-      
-      const scrollLeft = newIndex * cardWidth;
-      
-      publicationsRef.current.scrollTo({
-        left: scrollLeft,
-        behavior: 'smooth'
-      });
-      setActivePublicationIndex(newIndex);
-    }
-    setAutoPublicationsScrollEnabled(false); // Disable auto-scroll when manually navigating
   };
   
   return (
@@ -691,52 +524,7 @@ const Home = () => {
       
       <ProfessorProfile />
       
-      <PublicationsSection>
-        <PublicationsContainer>
-          <PublicationsHeader>
-            <PublicationsTitle>Recent Publications</PublicationsTitle>
-            <PublicationsDescription>
-              Explore our latest research publications and scientific contributions.
-            </PublicationsDescription>
-          </PublicationsHeader>
-          
-          <PublicationsScroll 
-            ref={publicationsRef}
-            onMouseEnter={() => setIsPublicationsHovered(true)}
-            onMouseLeave={() => setIsPublicationsHovered(false)}
-          >
-            {publicationData.map(publication => (
-              <PublicationItem key={publication.id} publication={publication} />
-            ))}
-          </PublicationsScroll>
-          
-          <PublicationsDots>
-            <NavigationButton 
-              onClick={() => handlePublicationNavigation('prev')}
-              disabled={activePublicationIndex === 0}
-              aria-label="Previous publication"
-            >
-              &#10094;
-            </NavigationButton>
-            
-            {publicationData.map((_, index) => (
-              <PublicationDot 
-                key={index} 
-                active={index === activePublicationIndex}
-                onClick={() => handlePublicationDotClick(index)}
-              />
-            ))}
-            
-            <NavigationButton 
-              onClick={() => handlePublicationNavigation('next')}
-              disabled={activePublicationIndex === publicationData.length - 1}
-              aria-label="Next publication"
-            >
-              &#10095;
-            </NavigationButton>
-          </PublicationsDots>
-        </PublicationsContainer>
-      </PublicationsSection>
+      <PublicationsSection />
     </>
   );
 };

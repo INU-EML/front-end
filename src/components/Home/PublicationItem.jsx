@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { theme } from '../../styles/GlobalStyles';
+import { theme, breakpoints } from '../../styles/GlobalStyles';
 
 const PublicationCard = styled.a`
   flex: 0 0 auto;
-  width: 320px; /* 726px 이미지 너비에 맞게 조정 */
+  width: 320px;
   background-color: ${theme.white};
   border-radius: 12px;
   overflow: hidden;
@@ -12,27 +12,42 @@ const PublicationCard = styled.a`
   transition: all 0.3s ease;
   scroll-snap-align: start;
   text-decoration: none;
-  display: block;
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
-  
+
+  &:focus-visible {
+    outline: 3px solid ${theme.primary};
+    outline-offset: 3px;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    width: min(320px, 100%);
+  }
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    &:hover { transform: none; }
+  }
 `;
 
 const PublicationImageContainer = styled.div`
-  height: 420px; /* 955px 이미지 높이에 맞게 조정 */
-  background-color: ${theme.darkBlue};
+  aspect-ratio: 320 / 420;
+  background-color: ${theme.light};
   position: relative;
   overflow: hidden;
   
   &::after {
-    content: '${props => props.year}';
+    content: '${props => props.$year}';
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: ${theme.accent};
+    background-color: ${theme.primary};
     color: white;
     padding: 4px 8px;
     border-radius: 4px;
@@ -45,13 +60,8 @@ const PublicationImageContainer = styled.div`
 const PublicationImg = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 이미지가 컨테이너를 꽉 채우도록 설정 */
-  object-position: center top; /* 이미지의 상단부터 보이도록 설정 */
-  transition: transform 0.3s ease;
-  
-  ${PublicationCard}:hover & {
-    transform: scale(1.05);
-  }
+  object-fit: contain;
+  object-position: center;
 `;
 
 const PublicationContent = styled.div`
@@ -89,16 +99,28 @@ const PublicationJournal = styled.p`
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 0;
 `;
 
-const PublicationItem = ({ publication }) => {
+const CoverLabel = styled.span`
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  background: #eaf3fc;
+  color: ${theme.primary};
+  font-size: 0.75rem;
+  font-weight: 600;
+`;
+
+const PublicationItem = ({ publication, showCoverLabel = false }) => {
   return (
     <PublicationCard 
       href={publication.doi} 
       target="_blank" 
       rel="noopener noreferrer"
     >
-      <PublicationImageContainer year={publication.year}>
+      <PublicationImageContainer $year={publication.year}>
         <PublicationImg 
           src={publication.image} 
           alt={publication.title}
@@ -108,8 +130,9 @@ const PublicationItem = ({ publication }) => {
         />
       </PublicationImageContainer>
       <PublicationContent>
-        <PublicationTitle>{publication.title}</PublicationTitle>
-        <PublicationAuthors>{publication.authors}</PublicationAuthors>
+        {showCoverLabel && publication.coverLabel && <CoverLabel>{publication.coverLabel}</CoverLabel>}
+        <PublicationTitle title={publication.title}>{publication.title}</PublicationTitle>
+        <PublicationAuthors title={publication.authors}>{publication.authors}</PublicationAuthors>
         <PublicationJournal>{publication.journal}</PublicationJournal>
       </PublicationContent>
     </PublicationCard>
