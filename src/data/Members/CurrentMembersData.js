@@ -97,15 +97,6 @@ export const currentMembersData = {
       ],
     },
     {
-      name: "Somi Lee",
-      image: "/images/Memebers/CurrentMemebers/Master/Ms_Somi Lee.jpg",
-      career: [
-        "M.S. Course at Incheon National University, 2023~",
-        "B.S., Incheon National University, 2023",
-      ],
-      researchFields: ["Solid Oxide Fuel Cells", "Sputtering"],
-    },
-    {
       name: "DaHyun Han",
       image: "/images/Memebers/CurrentMemebers/Master/Ms_DaHyun Han.jpg",
       career: [
